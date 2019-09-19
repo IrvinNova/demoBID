@@ -1,3 +1,80 @@
 export const environment = {
-  production: true
+  production: true,
+  debug: false,
+
+  // credentials
+  user: 'fbe',
+  password: 'password',
+  encoded: 'dXNlcmFwcDpwYXNzd29yZA==',
+
+  // logo
+  logo: '/assets/LOGO.png',
+  logo_light: '/assets/LOGO_LIGHT.png',
+  ocr_timeout: 2000,
+
+  // urls
+  servicesURL: 'http://apidev.buroidentidad.com',
+  //servicesURL: 'http://api.buroidentidad.com',
+
+  // codes
+  okCode: -9999,
+  appPermission: 9,
+  mexico_id: 127,
+  cdmx_id: 9,
+  map_key: 'AIzaSyDVbHKUNntc-jWtK5yfU69Ve0zgxRyLjAw',
+
+  // servicios
+  authService: ':8083/uaa/oauth/token',
+  loginService: ':9419/bid/rest/v1/login',
+  catProducts: ':9417/bid/rest/v1/product/getProducts',
+  catAgreement: ':9414/bid/rest/v1/agreements/assignProduct?idProduct=',
+  catNombraminento: ':9414/bid/rest/v1/amount/listAmount?idAgreement=',
+  allTerms: ':9414/bid/rest/v1/formulas/allTerms?idAgreement=',
+  allAmmounts: ':9414/bid/rest/v1/formulas/allAmounts?idAgreement=',
+  ocr: ':9411/bid/rest/v1/enrollment/ocr/document',
+  saveDoc: ':9411/bid/rest/v1/documents/upload',
+  enrrolFingers: ':9420/bid/fingerEnrollment/enrollment',
+  updatePerson: ':9436/bid/rest/v1/people/upload',
+  queryIne: ':9429/bid/rest/v1/ine/validation',
+  identifyEnroll: ':9420/bid/fingerIdentification/identify',
+  ocr_cd: ':9411/bid/rest/v1/enrollment/ocr/cd',
+  save_credit: ':9414/bid/rest/v1/credit/',
+  save_references: ':9414/bid/rest/v1/reference/',
+  cat_country: ':9415/bid/rest/v1/catalogues/selector?value=country',
+  cat_state: ':9415/bid/rest/v1/catalogues/selector?value=state',
+  cat_city: ':9415/bid/rest/v1/catalogues/selector?value=city&filter=',
+  cat_town: ':9415/bid/rest/v1/catalogues/selector?value=town&filter=',
+  operation_create: ':9411/bid/rest/v1/operations',
+  save_doc_resp: ':9431/bid/rest/v1/files/images',
+  face_serv: ':9423/bid/rest/v1/enrollment/facial',
+  curp_validate: ':9426/bid/rest/v1/renapo/napi/curp',
+  direction_serv: 'https://us-central1-bid-general.cloudfunctions.net/DireccionCompleta',
+  
+  // storage
+  token: 'asbdkasjdkla',
+  session: 'alksjdpiwk',
+  client: 'alksjpadkwm',
+  credit: 'alsknaksnwunw',
+  fingers: 'a8mas8a9san',
+  operation: 'asasasoai9w',
+  person: 'oasidmadm9a',
+  agente: 'lkn2okn2knnk',
+  leftIndex: 'lk3jkjkjl22',
+  rightIndex: 'jkb2jon2k3no2',
+  dataOcr: 'inum83mosim33f',
+  newClient: 'newClient',
+  operationClient: 'operationClient',
+  person_adress: 'person_adress',
+  product: 'selected_product',
+  agreement: 'selected_agreement',
+  appointment: 'selected_appointment',
+  dataClient: 'datosCliente',
+  leftFingersC: 'leftFingersC',
+  rightFingersC: 'rightFingersC',
+  fingers_storage: 'fingers_storage',
+  face_storage: 'face_storage',
+  same_adress: 'same_adress',
+  hand: 'hand_storage',
+  right_valid: 'right_valid',
+  left_valid: 'left_valid'
 };

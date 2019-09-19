@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="end">
+      <ion-button (click)="back()">
+        <ion-icon slot="icon-only" color="secondary" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><h2>
+          <ion-img class="head-logo" [src]="logo_light"></ion-img>
+        </h2></ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+    <ion-button class="action" expand="block" (click)="continue()">Iniciar</ion-button>
+  </div>
+</ion-content>

@@ -1,16 +1,80 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: false
-};
+  production: false,
+  debug: true,
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+  // credentials
+  user: 'fbe',
+  password: 'password',
+  encoded: 'dXNlcmFwcDpwYXNzd29yZA==',
+
+  // logo
+  logo: '/assets/LOGO.png',
+  logo_light: '/assets/LOGO_LIGHT.png',
+  ocr_timeout: 2000,
+
+  // urls
+  servicesURL: 'http://apidev.buroidentidad.com',
+  //servicesURL: 'http://apiqa.buroidentidad.com',
+
+  // codes
+  okCode: -9999,
+  appPermission: 9,
+  mexico_id: 127,
+  cdmx_id: 9,
+  map_key: 'AIzaSyDVbHKUNntc-jWtK5yfU69Ve0zgxRyLjAw',
+
+  // servicios
+  authService: ':8083/uaa/oauth/token',
+  loginService: ':9419/bid/rest/v1/login',
+  catProducts: ':9417/bid/rest/v1/product/getProducts',
+  catAgreement: ':9414/bid/rest/v1/agreements/assignProduct?idProduct=',
+  catNombraminento: ':9414/bid/rest/v1/amount/listAmount?idAgreement=',
+  allTerms: ':9414/bid/rest/v1/formulas/allTerms?idAgreement=',
+  allAmmounts: ':9414/bid/rest/v1/formulas/allAmounts?idAgreement=',
+  ocr: ':9411/bid/rest/v1/enrollment/ocr/document',
+  saveDoc: ':9411/bid/rest/v1/documents/upload',
+  enrrolFingers: ':9420/bid/fingerEnrollment/enrollment',
+  updatePerson: ':9436/bid/rest/v1/people/upload',
+  queryIne: ':9429/bid/rest/v1/ine/validation',
+  identifyEnroll: ':9420/bid/fingerIdentification/identify',
+  ocr_cd: ':9411/bid/rest/v1/enrollment/ocr/cd',
+  save_credit: ':9414/bid/rest/v1/credit/',
+  save_references: ':9414/bid/rest/v1/reference/',
+  cat_country: ':9415/bid/rest/v1/catalogues/selector?value=country',
+  cat_state: ':9415/bid/rest/v1/catalogues/selector?value=state',
+  cat_city: ':9415/bid/rest/v1/catalogues/selector?value=city&filter=',
+  cat_town: ':9415/bid/rest/v1/catalogues/selector?value=town&filter=',
+  operation_create: ':9411/bid/rest/v1/operations',
+  save_doc_resp: ':9431/bid/rest/v1/files/images',
+  face_serv: ':9423/bid/rest/v1/enrollment/facial',
+  curp_validate: ':9426/bid/rest/v1/renapo/napi/curp',
+  direction_serv: 'https://us-central1-bid-general.cloudfunctions.net/DireccionCompleta',
+  
+  // storage
+  token: 'auth_token',
+  session: 'session_data',
+  client: 'client_data',
+  credit: 'credit_data',
+  fingers: 'fingers_data',
+  operation: 'operation_data',
+  person: 'person_data',
+  agente: 'agent_data',
+  leftIndex: 'leftIndex',
+  rightIndex: 'rightIndex',
+  dataOcr: 'dataPerson',
+  newClient: 'newClient',
+  operationClient: 'operationClient',
+  person_adress: 'person_adress',
+  product: 'selected_product',
+  agreement: 'selected_agreement',
+  appointment: 'selected_appointment',
+  dataClient: 'datosCliente',
+  leftFingersC: 'leftFingersC',
+  rightFingersC: 'rightFingersC',
+  fingers_storage: 'fingers_storage',
+  face_storage: 'face_storage',
+  same_adress: 'same_adress',
+  hand: 'hand_storage',
+  right_valid: 'right_valid',
+  left_valid: 'left_valid'
+};

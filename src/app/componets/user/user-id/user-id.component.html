@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon slot="icon-only" color="secondary" name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-img class="head-logo" [src]="logo"></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-loading></app-loading>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><h1>Captura identificación</h1></ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <app-camera [name]="cameraNames" [file]="false" [mitek]="true" [buttonsPosition]="2" (onImage)="getImage($event)" (error)="cameraErrorHandler($event)"></app-camera>
+        <h3>
+          ¿El domicilio del ID es el actual?
+          <ion-item lines="none">
+            <ion-toggle mode="ios" color="primary" [(ngModel)]="data.direction"></ion-toggle>
+            <ion-label slot="end">SI</ion-label>
+          </ion-item>
+        </h3>
+      </ion-card-content>
+    </ion-card>
+    <ion-button expand="block" (click)="callOCR()">Continuar</ion-button>
+  </div>
+</ion-content>

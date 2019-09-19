@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>
+      <ion-img class="head-logo" [src]="logo"></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-loading></app-loading>
+  <div class="center">
+    <h1>Verificación de huellas</h1>
+    <app-enrollment [icon-class]="'enrollment-icon'" [right]="false" [swichable]="true" (onBoth)="both($event)" (onLeft)="left($event)" (onRight)="right($event)"></app-enrollment>
+  </div>
+</ion-content>
