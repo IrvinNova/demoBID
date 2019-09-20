@@ -16,7 +16,7 @@ import { LoadingComponent } from '../../../bid/components/loading/loading.compon
 export class RegisterMainComponent implements OnInit {
   
   public data: RegisterMain;
-  public logo: string = environment.logo;
+  public logo: string = environment.logo_light;
   private token: string;
 
   @ViewChild(LoadingComponent, {static: true}) loading: LoadingComponent;
