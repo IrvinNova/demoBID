@@ -24,7 +24,7 @@ export const environment = {
   map_key: 'AIzaSyDVbHKUNntc-jWtK5yfU69Ve0zgxRyLjAw',
 
   // servicios
-  authService: ':8083/uaa/oauth/token',
+  authService: ':8083/uaa/oauth/token?grant_type=password&username=demo&password=password',
   loginService: ':9419/bid/rest/v1/login',
   catProducts: ':9417/bid/rest/v1/product/getProducts',
   catAgreement: ':9414/bid/rest/v1/agreements/assignProduct?idProduct=',
