@@ -50,7 +50,12 @@ export class MainComponent implements OnInit {
       'Content-Type': 'application/x-www-form-urlencoded'
     });
 
-    await this.http.post(environment.servicesURL + environment.authService, {headers})
+    const params = new HttpParams()
+    .set('grant_type', 'password')
+    .set('username', environment.user)
+    .set('password', environment.password);
+
+    await this.http.post(environment.servicesURL + environment.authService, params, {headers})
     .subscribe( async data => {
       this.token = data['access_token'];
       this.storage.save(environment.token, this.token);
