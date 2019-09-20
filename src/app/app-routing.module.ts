@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './components/main/main.component';
-import { RegisterMainComponent } from './components/register/register-main/register-main.component';
-import { RegisterIdComponent } from './components/register/register-id/register-id.component';
-import { RegisterFingersComponent } from './components/register/register-fingers/register-fingers.component';
-import { RegisterOcrComponent } from './components/register/register-ocr/register-ocr.component';
-import { RegisterIneComponent } from './components/register/register-ine/register-ine.component';
-import { RegisterEndComponent } from './components/register/register-end/register-end.component';
+import { MainComponent } from './componets/main/main.component';
+import { RegisterMainComponent } from './componets/register/register-main/register-main.component';
+import { RegisterIdComponent } from './componets/register/register-id/register-id.component';
+import { RegisterFingersComponent } from './componets/register/register-fingers/register-fingers.component';
+import { RegisterOcrComponent } from './componets/register/register-ocr/register-ocr.component';
+import { RegisterIneComponent } from './componets/register/register-ine/register-ine.component';
+import { RegisterEndComponent } from './componets/register/register-end/register-end.component';
 
-import { UserMainComponent } from './components/user/user-main/user-main.component';
-import { UserFingersComponent } from './components/user/user-fingers/user-fingers.component';
-import { UserFingersVerifyComponent } from './components/user/user-fingers-verify/user-fingers-verify.component';
-import { UserIdComponent } from './components/user/user-id/user-id.component';
-import { UserAdressComponent } from './components/user/user-adress/user-adress.component';
-import { UserEnrollComponent } from './components/user/user-enroll/user-enroll.component';
-import { UserFacialComponent } from './components/user/user-facial/user-facial.component';
-import { UserOcrComponent } from './components/user/user-ocr/user-ocr.component';
-import { UserIneComponent } from './components/user/user-ine/user-ine.component';
-import { UserEndComponent } from './components/user/user-end/user-end.component';
+import { UserMainComponent } from './componets/user/user-main/user-main.component';
+import { UserFingersComponent } from './componets/user/user-fingers/user-fingers.component';
+import { UserFingersVerifyComponent } from './componets/user/user-fingers-verify/user-fingers-verify.component';
+import { UserIdComponent } from './componets/user/user-id/user-id.component';
+import { UserAdressComponent } from './componets/user/user-adress/user-adress.component';
+import { UserEnrollComponent } from './componets/user/user-enroll/user-enroll.component';
+import { UserFacialComponent } from './componets/user/user-facial/user-facial.component';
+import { UserOcrComponent } from './componets/user/user-ocr/user-ocr.component';
+import { UserIneComponent } from './componets/user/user-ine/user-ine.component';
+import { UserEndComponent } from './componets/user/user-end/user-end.component';
 
-import { TesterComponent } from './components/test/tester/tester.component';
+import { TesterComponent } from './componets/test/tester/tester.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },

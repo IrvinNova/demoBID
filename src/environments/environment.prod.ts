@@ -8,8 +8,8 @@ export const environment = {
   encoded: 'dXNlcmFwcDpwYXNzd29yZA==',
 
   // logo
-  logo: '/assets/LOGO.png',
-  logo_light: '/assets/LOGO_LIGHT.png',
+  logo: '/assets/logo_blanco_2.png',
+  logo_light: '/assets/logo_BID.png',
   ocr_timeout: 2000,
 
   // urls

@@ -3,18 +3,18 @@ export const environment = {
   debug: true,
 
   // credentials
-  user: 'fbe',
+  user: 'demo',
   password: 'password',
   encoded: 'dXNlcmFwcDpwYXNzd29yZA==',
 
   // logo
-  logo: '/assets/LOGO.png',
-  logo_light: '/assets/LOGO_LIGHT.png',
+  logo: '/assets/logo_BID.png', 
+  logo_light: '/assets/logo_blanco_2.png',
   ocr_timeout: 2000,
 
   // urls
-  servicesURL: 'http://apidev.buroidentidad.com',
-  //servicesURL: 'http://apiqa.buroidentidad.com',
+  // servicesURL: 'http://apidev.buroidentidad.com',
+  servicesURL: 'http://apiqa.buroidentidad.com',
 
   // codes
   okCode: -9999,
