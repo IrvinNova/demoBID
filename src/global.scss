@@ -24,3 +24,98 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.dark-back{
+    --background-color: #303030;
+    --color: #fff;
+}
+
+.primary-back{
+    --background-color: #0D96F5;
+    --color: #fff;
+}
+
+.secondary-back{
+    --background-color: #276bd0;
+    --color: #fff;
+}
+
+.dark-color{
+    --color: #303030;
+}
+
+.primary-color{
+    --color: #0D96F5;
+}
+
+.secondary-color{
+    --color: #276bd0;
+}
+
+ion-content.dark-back{
+    --background: #303030;
+    --color: #fff;
+}
+
+.center{
+    text-align: center;
+}
+
+ion-button{
+    font-size: 22px;
+    height: 50px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+ion-button.icon-only{
+    font-size: 40px;
+    height: 50px;
+    padding: 0px;
+}
+
+.head-logo{
+    height: 6vh;
+    position: relative;
+    margin: 0px;
+}
+
+ion-title{
+    padding: 0px;
+    margin-left: 30vw;
+}
+
+.custom_input{
+    border-bottom: 2px solid #0D96F5;
+    text-align: left;
+    font-size: 20px;
+}
+
+ion-label{
+    margin-left: 30px;
+}
+
+.enrollment-icon{
+    font-size: 25vh;
+}
+
+.options-icon{
+    font-size: 7vh;
+}
+
+.secondary-icon{
+    font-size: 10vh;
+}
+
+.right{
+    text-align: right;
+}
+
+ion-list{
+    background-color: transparent;
+}
+
+ion-item{
+    background-color: transparent;
+}
