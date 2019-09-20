@@ -10,6 +10,7 @@ export const environment = {
   // logo
   logo: '/assets/logo_BID.png', 
   logo_light: '/assets/logo_blanco_2.png',
+  logo_blanco: '/assets/logo_blanco_2.png',
   ocr_timeout: 2000,
 
   // urls
@@ -24,7 +25,7 @@ export const environment = {
   map_key: 'AIzaSyDVbHKUNntc-jWtK5yfU69Ve0zgxRyLjAw',
 
   // servicios
-  authService: ':8083/uaa/oauth/token?grant_type=password&username=demo&password=password',
+  authService: ':8083/uaa/oauth/token',
   loginService: ':9419/bid/rest/v1/login',
   catProducts: ':9417/bid/rest/v1/product/getProducts',
   catAgreement: ':9414/bid/rest/v1/agreements/assignProduct?idProduct=',
