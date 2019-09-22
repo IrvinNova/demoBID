@@ -26,8 +26,8 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 .dark-back{
-    --background-color: #303030;
-    --color: #fff;
+    --background-color: #fff;
+    --color: #303030;
 }
 
 .primary-back{
@@ -76,9 +76,17 @@ ion-button.icon-only{
 }
 
 .head-logo{
-    height: 6vh;
+    margin-left: 60px;
+    height: 7vh;
     position: relative;
-    margin: 0px;
+    // margin: 0px;
+}
+
+.head-logo2{
+    margin-left: 0px;
+    height: 13vh;
+    position: relative;
+    // margin: 0px;
 }
 
 ion-title{

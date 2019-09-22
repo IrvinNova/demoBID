@@ -24,6 +24,7 @@ export class UserFingersComponent implements OnInit {
 
   public dataFingers: Fingers;
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
   @ViewChild(LoadingComponent, {static: true}) loading: LoadingComponent;
   
   private token: string;
