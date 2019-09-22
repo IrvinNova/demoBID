@@ -30,10 +30,12 @@
     "@ionic/storage": "^2.2.0",
     "FingersBidEnrollment": "file:pluginsSRC/cordova-plugin-fingers-bid-master",
     "cordova-android": "8.1.0",
+    "cordova-plugin-CameraBidMitek": "file:pluginsSRC/CameraBidMitek",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-sqlite-storage": "^3.3.0",
     "core-js": "^2.5.4",
+    "facialbidmitek": "file:pluginsSRC/FacialBidMitek",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -81,12 +83,14 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "com.bid.fbe.FingersBidEnrollment": {},
       "cordova-plugin-geolocation": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-camera": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      }
+      },
+      "com.bid.fbe.FingersBidEnrollment": {},
+      "cordova-plugin-CameraBidMitek": {},
+      "com.miteksystems.FacialBidMitek": {}
     },
     "platforms": [
       "android"

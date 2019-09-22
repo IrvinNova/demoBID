@@ -49,6 +49,8 @@ export const environment = {
   save_doc_resp: ':9431/bid/rest/v1/files/images',
   face_serv: ':9423/bid/rest/v1/enrollment/facial',
   curp_validate: ':9426/bid/rest/v1/renapo/napi/curp',
+  otpGenerate: ':9430/bid/rest/v1/notification/otp/generate',
+  otpValidate: ':9430/bid/rest/v1/notification/otp/validate',
   direction_serv: 'https://us-central1-bid-general.cloudfunctions.net/DireccionCompleta',
   
   // storage
@@ -77,5 +79,8 @@ export const environment = {
   same_adress: 'same_adress',
   hand: 'hand_storage',
   right_valid: 'right_valid',
+  kyc: 'kyc',
+  telefono: 'telefono',
+  email: 'email',
   left_valid: 'left_valid'
 };

@@ -43,8 +43,8 @@ export class ConsultaIneService {
                 numeroEmisionCredencial: '01',
                 claveElector: dataPerson.claveElector,
                 curp: dataPerson.curp,
-                minucia2: fingers.get('leftIndex'),
-                minucia7:  fingers.get('rightIndex')
+                minucia2: fingers.get('rightIndex'),
+                minucia7:  fingers.get('leftIndex')
             }
     }
 

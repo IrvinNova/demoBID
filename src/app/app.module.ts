@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera/ngx';
+import { Device } from '@ionic-native/device/ngx';
 
 import { CameraModule } from './bid/components/camera/camera.module';
 import { ModalModule } from './bid/components/modal/modal.module';
@@ -41,6 +42,8 @@ import { UserEnrollComponent } from './componets/user/user-enroll/user-enroll.co
 import { UserFacialComponent } from './componets/user/user-facial/user-facial.component';
 import { UserOcrComponent } from './componets/user/user-ocr/user-ocr.component';
 import { UserIneComponent } from './componets/user/user-ine/user-ine.component';
+import { UserKycComponent } from './componets/user/user-kyc/user-kyc.component';
+import { UserOtpComponent } from './componets/user/user-otp/user-otp.component';
 import { UserEndComponent } from './componets/user/user-end/user-end.component';
 
 // tester
@@ -68,6 +71,8 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     UserFacialComponent,
     UserOcrComponent,
     UserIneComponent,
+    UserKycComponent,
+    UserOtpComponent,
     UserEndComponent,
 
     // tester
@@ -101,6 +106,7 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     CameraModule,
     HttpClientModule,
     FormsModule,
+    Device,
     Geolocation,
     Camera,
   ],

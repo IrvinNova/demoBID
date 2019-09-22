@@ -135,7 +135,7 @@ export class UserIneComponent implements OnInit {
   }
 
   public continue(): void{
-    this.nav.navigateForward('/userEnd');
+    this.nav.navigateForward('/userKyc');
   }
 
   public finalizar(): void{
