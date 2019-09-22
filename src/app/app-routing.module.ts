@@ -22,7 +22,7 @@ import { UserEndComponent } from './componets/user/user-end/user-end.component';
 import { TesterComponent } from './componets/test/tester/tester.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '', redirectTo: 'test', pathMatch: 'full' },
   //{ path: '', redirectTo: 'test', pathMatch: 'full' },
   { path: 'main', component: MainComponent, pathMatch: 'full' },
   { path: 'registerMain', component: RegisterMainComponent, pathMatch: 'full' },

@@ -19,6 +19,7 @@ export class RegisterOcrComponent implements OnInit {
 
   public data: Ocr;
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
   private token: string;
   private login: LoginModel;
   private operation: OperationsObj;

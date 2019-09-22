@@ -15,6 +15,7 @@ declare var FacialBidMitek: any;
 export class UserFacialComponent implements OnInit {
 
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
 
   @ViewChild(LoadingComponent, {static: true}) loading: LoadingComponent;
 

@@ -17,7 +17,7 @@
     
     <config-file parent="/*" target="AndroidManifest.xml"/>
     
-    <source-file src="src/android/FingersBidEnrollment.java" target-dir="src/com/bid/tms/FingersBidEnrollment"/>
+    <source-file src="src/android/FingersBidEnrollment.java" target-dir="src/com/bid/fbe/FingersBidEnrollment"/>
     <framework src="src/android/FingersBidEnrollment.gradle" custom="true" type="gradleReference" />
     <resource-file src="src/android/com.bid.fbe2019-11-23.lic" target="src/main/assets/com.bid.fbe2019-11-23.lic" />
   </platform>

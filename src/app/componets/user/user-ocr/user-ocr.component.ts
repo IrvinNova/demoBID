@@ -26,6 +26,7 @@ export class UserOcrComponent implements OnInit {
   public data: Ocr;
   public dataAdress: Adress;
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
 
   private token: string;
   private login: LoginModel;

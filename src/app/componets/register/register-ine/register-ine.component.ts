@@ -21,6 +21,7 @@ export class RegisterIneComponent implements OnInit {
 
   public data: Ine = new Ine();
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
 
   public dataPerson: Ocr;
   private token: string;

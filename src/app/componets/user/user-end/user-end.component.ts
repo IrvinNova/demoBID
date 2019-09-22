@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class UserEndComponent implements OnInit {
 
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
 
   constructor(private nav: NavController) {}
 

@@ -27,6 +27,7 @@ export class UserAdressComponent implements OnInit {
 
   public dataAdress: Adress;
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
 
   public cameraNames: string[] = ['Comprobante'];
   private token: string;

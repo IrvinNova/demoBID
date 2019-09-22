@@ -23,6 +23,7 @@ export class UserIneComponent implements OnInit {
   public data: Ine = new Ine();
   public dataOcr: Ocr;
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
 
   private token: string;
   private login: LoginModel;

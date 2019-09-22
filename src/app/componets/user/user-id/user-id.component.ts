@@ -26,6 +26,7 @@ export class UserIdComponent implements OnInit {
   variable: number;
   public data: Id;
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
 
   public cameraNames: string[] = ['Anverso','Reverso'];
   private token: string;

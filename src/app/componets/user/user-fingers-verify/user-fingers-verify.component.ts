@@ -17,6 +17,7 @@ import { LoginModel } from 'src/app/classes/model/login-model';
 export class UserFingersVerifyComponent implements OnInit {
 
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
 
   private token: string;
   private login: LoginModel;
