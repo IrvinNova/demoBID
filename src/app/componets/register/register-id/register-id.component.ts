@@ -25,6 +25,7 @@ export class RegisterIdComponent implements OnInit {
 
   public cameraNames: string[] = ['Anverso','Reverso'];
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
   public data: Id;
 
   private token: string;

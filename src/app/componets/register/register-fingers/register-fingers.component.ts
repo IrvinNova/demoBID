@@ -19,6 +19,7 @@ export class RegisterFingersComponent implements OnInit {
 
   public data: Fingers;
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
 
   private token: string;
   private login: LoginModel;

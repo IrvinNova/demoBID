@@ -1,16 +1,15 @@
 <ion-header>
   <ion-toolbar color="secondary">
-    <ion-buttons slot="end">
+    <ion-buttons slot="start">
       <ion-button (click)="back()">
-        <ion-icon slot="icon-only" color="tertiary" name="log-out"></ion-icon>
+        <ion-icon slot="icon-only" color="tertiary" name="arrow-round-back"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>
-      
+      <ion-img class="head-logo" [src]="logout"></ion-img>
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <app-loading></app-loading>
   <div class="ion-padding">
