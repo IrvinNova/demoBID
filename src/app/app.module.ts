@@ -41,6 +41,7 @@ import { UserEnrollComponent } from './componets/user/user-enroll/user-enroll.co
 import { UserFacialComponent } from './componets/user/user-facial/user-facial.component';
 import { UserOcrComponent } from './componets/user/user-ocr/user-ocr.component';
 import { UserIneComponent } from './componets/user/user-ine/user-ine.component';
+import { UserKycComponent } from './componets/user/user-kyc/user-kyc.component';
 import { UserEndComponent } from './componets/user/user-end/user-end.component';
 
 // tester
@@ -68,6 +69,7 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     UserFacialComponent,
     UserOcrComponent,
     UserIneComponent,
+    UserKycComponent,
     UserEndComponent,
 
     // tester

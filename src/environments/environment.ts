@@ -77,5 +77,6 @@ export const environment = {
   same_adress: 'same_adress',
   hand: 'hand_storage',
   right_valid: 'right_valid',
+  kyc: 'kyc',
   left_valid: 'left_valid'
 };
