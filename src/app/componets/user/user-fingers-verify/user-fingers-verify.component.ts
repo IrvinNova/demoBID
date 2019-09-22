@@ -59,6 +59,8 @@ export class UserFingersVerifyComponent implements OnInit {
     }else{
       this.loading.show();
       this.updatePerson();
+      this.storage.save(environment.telefono, this.data.numero);
+      this.storage.save(environment.email, this.data.email);
       this.loading.hide();
       this.nextPage();
     }
