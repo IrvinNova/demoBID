@@ -3,7 +3,7 @@ export const environment = {
   debug: true,
 
   // credentials
-  user: 'demo',
+  user: 'fbe',
   password: 'password',
   encoded: 'dXNlcmFwcDpwYXNzd29yZA==',
 
@@ -14,8 +14,8 @@ export const environment = {
   ocr_timeout: 2000,
 
   // urls
-  // servicesURL: 'http://apidev.buroidentidad.com',
-  servicesURL: 'http://apiqa.buroidentidad.com',
+  servicesURL: 'http://apidev.buroidentidad.com',
+  // servicesURL: 'http://apiqa.buroidentidad.com',
 
   // codes
   okCode: -9999,

@@ -15,6 +15,7 @@ export class LoginService {
   public userPassLogin(token: string, usuario: string, contrasena: string): Observable<any>{
     const headers = {headers: new HttpHeaders().set('authorization', 'Bearer ' + token).set('Content-Type','application/json')};
     const params = '{"data": {"user": "' + usuario + '","password": "' + contrasena + '"}}';
+    console.log('Params Login', params);
     return this.serv.post(environment.servicesURL + environment.loginService, params, headers);
   }
 

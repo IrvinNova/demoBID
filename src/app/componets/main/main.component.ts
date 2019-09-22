@@ -58,6 +58,7 @@ export class MainComponent implements OnInit {
     await this.http.post(environment.servicesURL + environment.authService, params, {headers})
     .subscribe( async data => {
       this.token = data['access_token'];
+      console.log('Token', this.token);
       this.storage.save(environment.token, this.token);
       this.loading.hide();
     }, async error => {
@@ -132,7 +133,7 @@ export class MainComponent implements OnInit {
           this.alert.presentAlert('Error', 'Inicio de sesión incorrecto', 'Verifica tus datos de inicio de sesión e intentalo de nuevo', ['OK']);
         }
       }, error => {
-        console.log(JSON.stringify(error));
+        console.log('Error Login', error);
         this.alert.presentAlert('Error ' + error.status, 'Error de inicio de sesión', 'Ocurrió un error al ejecutar la petición, intentalo de nuevo', ['OK']);
         this.loading.hide();
       });
