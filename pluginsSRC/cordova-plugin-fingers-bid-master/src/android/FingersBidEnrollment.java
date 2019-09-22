@@ -103,12 +103,15 @@ public class FingersBidEnrollment extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+        argumentos = args;
         if ("initializeKaralundi".equals(action)) {
             initializeKaralundi(args, callbackContext, "left");
         }else if ("initializeKaralundiVerify".equals(action)) {
             initializeKaralundiVerify(args, callbackContext);
         }else if ("enrollKaralundi".equals(action)){
             enrollKaralundi(args, callbackContext);
+        }else if("initializeKaralundiVariable".equals(action)){
+            initializeKaralundiVariable(args, callbackContext);
         }
         return true;
     }
@@ -335,11 +338,180 @@ public class FingersBidEnrollment extends CordovaPlugin {
         }
     };
 
-    private void varifyQuality(String modo) {
+    private void initializeKaralundiVariable(JSONArray args, final CallbackContext callbackContext) throws JSONException{
+        // Check permissions
+        argumentos = args;
+        checkPermissions();
+        modoFinger = "enrolamiento";
+        compression = WSQCompression.WSQ_10_1;
+        String[] configs = args.getString(0).split(",");
+        List<FingerDetectionMode> aux = new ArrayList<FingerDetectionMode>();
 
-        if(modo == "Sign") {
+        if(configs.length == 0){
+            detectionModes = new FingerDetectionMode[]{FingerDetectionMode.L4F, FingerDetectionMode.R4F};
+        }else{
+            for(int i = 0; i < configs.length; i++){
+                switch(configs[i]){
+                    case "LEFT_LITTLE":
+                        aux.add(FingerDetectionMode.LEFT_LITTLE);
+                        break;
+                    case "LEFT_RING":
+                        aux.add(FingerDetectionMode.LEFT_RING);
+                        break;
+                    case "LEFT_MIDDLE":
+                        aux.add(FingerDetectionMode.LEFT_MIDDLE);
+                        break;
+                    case "LEFT_INDEX":
+                        aux.add(FingerDetectionMode.LEFT_INDEX);
+                        break;
+                    case "RIGHT_LITTLE":
+                        aux.add(FingerDetectionMode.RIGHT_LITTLE);
+                        break;
+                    case "RIGHT_RING":
+                        aux.add(FingerDetectionMode.RIGHT_RING);
+                        break;
+                    case "RIGHT_MIDDLE":
+                        aux.add(FingerDetectionMode.RIGHT_MIDDLE);
+                        break;
+                    case "RIGHT_INDEX":
+                        aux.add(FingerDetectionMode.RIGHT_INDEX);
+                        break;
+                    case "LEFT_THUMB":
+                        aux.add(FingerDetectionMode.LEFT_THUMB);
+                        break;
+                    case "RIGHT_THUMB":
+                        aux.add(FingerDetectionMode.RIGHT_THUMB);
+                        break;
+                    case "LEFT_HAND":
+                        aux.add(FingerDetectionMode.L4F);
+                        break;
+                    case "RIGHT_HAND":
+                        aux.add(FingerDetectionMode.R4F);
+                        break;
+                }
+            }
+        }
+
+        detectionModes = new FingerDetectionMode[aux.size()];
+        for(int i = 0; i < configs.length; i++){
+            detectionModes[i] = aux.get(i);
+        }
+
+        requiredtemplates.add(Template.WSQ);
+        final Activity activity = this.cordova.getActivity();
+        pendingCallbackContext = callbackContext;
+        // wsqB64StrImgs = new HashMap<>();
+        cordova.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    IdentySdk.newInstance(activity, "com.bid.fbe2019-11-23.lic", new IdentySdk.InitializationListener<IdentySdk>() {
+                        @Override
+                        public void onInit(IdentySdk d) {
+                            try {
+                                ArrayList<Finger> qc = new ArrayList<Finger>();
+                                qc.add(Finger.THUMB);
+                                qc.add(Finger.INDEX);
+                                qc.add(Finger.MIDDLE);
+                                qc.add(Finger.RING);
+                                qc.add(Finger.LITTLE);
+
+                                d.set4FintroShow(false);
+                                d.setThumbIntroShow(true);
+
+                                d.setDisplayImages(displayImages)
+                                        .setMode(mode)
+                                        .setAS(enableSpoofCheck)
+                                        .setDetectionMode(detectionModes)
+                                        .setRequiredTemplates(requiredtemplates)
+                                        .setDisplayBoxes(displayboxes)
+                                        .displayResult(false)
+                                        .setWSQCompression(compression)
+                                        .setCalculateNFIQ(true)
+                                        .qcList(qc)
+                                        .capture();
+
+                                d.setAllowHandChange(false);
+
+                            } catch (Exception e) {
+                                Log.e(classTag,e.getMessage());
+                                callbackContext.error("Error al inicializar SDK.");
+                            }
+                        }
+                    },captureListenerVariable);
+                } catch (Exception e) {
+                    Log.e(classTag,e.getMessage());
+                    callbackContext.error("Inicializacion de SDK fallida.");
+                }
+            }
+        });
+    }
+
+    IdentySdk.IdentyResponseListener captureListenerVariable = new IdentySdk.IdentyResponseListener() {
+        @Override
+        public void onResponse(IdentySdk.IdentyResponse response) {
+
+            arrayFinger.clear();
+            arrayNFIQ.clear();
+
+            for (Map.Entry<Pair<Hand, Finger>, IdentySdk.FingerOutput> o : response.getPrints().entrySet()) {
+                Pair<Hand, Finger> handFinger = o.getKey();
+                IdentySdk.FingerOutput fingerOutput = o.getValue();
+                String fingerID = handFinger.first.toString() + handFinger.second.toString();
+                String base64KaralundiStr = fingerOutput.getTemplates().get(Template.WSQ);
+
+                JSONObject fingersJ = fingerOutput.toJson();
+                Log.e("Huellas", "==========>>" + fingersJ);
+                try{
+                    arrayNFIQ.add(Integer.parseInt(fingersJ.getString("nfiq_1")));
+                    arrayFinger.add(fingersJ.getString("finger"));
+
+                } catch (Exception e) {
+                    e.fillInStackTrace();
+                }
+
+                try {
+                    String b64Str = Base64.encodeToString(FileCodecBase64.decode(base64KaralundiStr, Base64.DEFAULT), Base64.NO_WRAP);
+                    wsqB64StrImgs.put(fingerID, b64Str);
+                }catch (Exception ex){
+                    Log.e(classTag,ex.getMessage());
+                    pendingCallbackContext.error("Error al procesar huellas, intente nuevamente.");
+                }
+            }
+            Log.e(classTag,"IdentySdk onResponse success");
+            varifyQuality("variable");
+            //getJsonString(pendingCallbackContext, wsqB64StrImgs);
+        }
+        @Override
+        public void onErrorResponse(IdentySdk.IdentyError error) {
+            Log.e(classTag,"onErrorResponse");
+            pendingCallbackContext.error("No se obtuvo respuesta del SDK, inténtelo de nuevo.");
+            pendingCallbackContext = null;
+        }
+    };
+
+    private void varifyQuality(String modo) {
+        if(modo.equals("variable")) {
             String verify = "";
-            if(arrayFinger != null && arrayNFIQ != null) {
+            if (arrayFinger != null && arrayNFIQ != null) {
+
+                for (int nfiq_1 = 0; nfiq_1 < arrayNFIQ.size(); nfiq_1++) {
+                    int quality = arrayNFIQ.get(nfiq_1);
+                    String finger = arrayFinger.get(nfiq_1);
+
+                    Log.e("calidad", ":::::::::::::::::::::" + finger + ' ' + quality);
+
+                    verify += String.valueOf(validateFingerQuality(quality, finger));
+                }
+
+                Log.e("Valores de calidad", ":::::::::::::::::::::" + verify);
+
+                redirectVariable(verify);
+
+            }
+        }else if(modo == "Sign") { // posible error
+            String verify = "";
+            if (arrayFinger != null && arrayNFIQ != null) {
 
                 for (int nfiq_1 = 0; nfiq_1 < arrayNFIQ.size(); nfiq_1++) {
                     int quality = arrayNFIQ.get(nfiq_1);
@@ -452,6 +624,29 @@ public class FingersBidEnrollment extends CordovaPlugin {
         } else {
             getJsonString(pendingCallbackContext, wsqB64StrImgs);
         }
+
+    }
+
+    private void redirectVariable(String verify) {
+        getJsonString(pendingCallbackContext, wsqB64StrImgs);
+        /*if(verify.contains("false")) {
+            Log.e("calidad baja en ", "par firmar");
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.cordova.getActivity());
+            builder.setTitle("Importante");
+            builder.setMessage("La calidad de la huella es baja, por favor intente nuevamente");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    try {
+                        initializeKaralundiVariable(argumentos, pendingCallbackContext);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }});
+            builder.create();
+            builder.show();
+        } else {
+            getJsonString(pendingCallbackContext, wsqB64StrImgs);
+        }*/
 
     }
 
