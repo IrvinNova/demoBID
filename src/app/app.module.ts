@@ -50,6 +50,7 @@ import { UserDocumentsComponent } from './componets/user/user-documents/user-doc
 import { UserShowDocumentComponent } from './componets/user/user-show-document/user-show-document.component';
 import { UserSignComponent } from './componets/user/user-sign/user-sign.component';
 import { UserFingerSignComponent } from './componets/user/user-finger-sign/user-finger-sign.component';
+import { UserDocsRecordComponent } from './componets/user/user-docs-record/user-docs-record.component';
 import { UserEndComponent } from './componets/user/user-end/user-end.component';
 
 // tester
@@ -84,6 +85,7 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     UserShowDocumentComponent,
     UserSignComponent,
     UserFingerSignComponent,
+    UserDocsRecordComponent,
     UserEndComponent,
 
     // tester

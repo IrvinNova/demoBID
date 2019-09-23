@@ -14,7 +14,7 @@ export class SignComponent implements OnInit {
   public undo: boolean = true;
   public background: boolean = false;
 
-  // @ViewChild('myCanvas') canvas: any;
+  @ViewChild('myCanvas', {static: true}) canvas: any;
 
   canvasElement: any;
   lastX: number;
@@ -23,7 +23,7 @@ export class SignComponent implements OnInit {
   currentColour: string = '#000';
   brushSize: number = 2;
 
-  constructor(public platform: Platform, public renderer: Renderer, private storage: StorageService, private nav: NavController) {
+  constructor(private nav: NavController,public platform: Platform, public renderer: Renderer, private storage: StorageService) {
       console.log('Hello CanvasDraw Component');
   }
 
@@ -33,7 +33,7 @@ export class SignComponent implements OnInit {
 
   ngAfterViewInit(){
 
-      //this.canvasElement = this.canvas.nativeElement;
+      this.canvasElement = this.canvas.nativeElement;
 
       this.renderer.setElementAttribute(this.canvasElement, 'width', this.platform.width() + '');
       this.renderer.setElementAttribute(this.canvasElement, 'height', this.platform.height() + '');

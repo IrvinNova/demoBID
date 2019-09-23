@@ -14,6 +14,9 @@ import { ReadDocument } from '../../../services/readDocument/readDocument.servic
 })
 export class UserDocumentsComponent implements OnInit {
 
+  public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
+
   documentCode: string;
   token: any;
   pdf: any;
