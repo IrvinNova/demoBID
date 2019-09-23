@@ -18,7 +18,7 @@
       <h1>Capturar huellas</h1>
     </ion-text>
     <div class="noPadding center">
-      <app-enrollment [icon-class]="'enrollment-icon'" (onLeft)="left($event)" (onRight)="right($event)"></app-enrollment>
+      <app-enrollment [icon-class]="'enrollment-icon'" (onLeft)="left($event)" (onRight)="right($event)" (onBoth)="both($event)"></app-enrollment>
       <ion-button expand="block" (click)="continue()">Continuar</ion-button>
     </div>
   </div>

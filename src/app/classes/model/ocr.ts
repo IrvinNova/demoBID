@@ -35,7 +35,7 @@ export class Ocr {
     }
 
     public allData(): boolean{
-        /*if(this.registro){
+        if(this.registro){
             let date = new Date();
             date.setFullYear(this.registro.length > 4 ? +this.registro.substring(0, 4): +this.registro);
             this.registro = date.getFullYear().toString();
@@ -46,7 +46,7 @@ export class Ocr {
             date.setFullYear(this.emision.length > 4 ? +this.emision.substring(0, 4): +this.emision);
             this.emision = date.getFullYear().toString();
             console.log('EMISION: ', this.emision);
-        }*/
+        }
         if(this.nacimiento){
             let date = new Date();
             date.setFullYear(this.nacimiento.length > 4 ? +this.nacimiento.substring(0, 4): +this.nacimiento);

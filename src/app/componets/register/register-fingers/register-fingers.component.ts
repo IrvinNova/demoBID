@@ -55,6 +55,14 @@ export class RegisterFingersComponent implements OnInit {
     this.data.rightData = true;
   }
 
+  public both(hand: Hands){
+    this.data.data = hand;
+    this.data.enrollRight = true;
+    this.data.enrollLeft = true;
+    this.data.rightData = true;
+    this.data.leftData = true;
+  }
+
   public async enroll(){
     if(this.data.data.left_index.content && this.data.data.right_index.content) {
       this.loading.show();
