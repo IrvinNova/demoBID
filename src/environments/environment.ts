@@ -51,6 +51,7 @@ export const environment = {
   curp_validate: ':9426/bid/rest/v1/renapo/napi/curp',
   otpGenerate: ':9430/bid/rest/v1/notification/otp/generate',
   otpValidate: ':9430/bid/rest/v1/notification/otp/validate',
+  generateDoc: ':9414/bid/rest/v1/dxn/contracts',
   direction_serv: 'https://us-central1-bid-general.cloudfunctions.net/DireccionCompleta',
   
   // storage
@@ -82,5 +83,7 @@ export const environment = {
   kyc: 'kyc',
   telefono: 'telefono',
   email: 'email',
+  pdfDoc: 'pdfDoc',
+  firmaAuth: 'firmaAuth',
   left_valid: 'left_valid'
 };

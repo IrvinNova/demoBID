@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, Renderer } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { StorageService } from '../../../bid/services/storage.service';
+import { environment } from 'src/environments/environment';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-sign',
@@ -11,7 +14,7 @@ export class SignComponent implements OnInit {
   public undo: boolean = true;
   public background: boolean = false;
 
-  //@ViewChild('myCanvas') canvas: any;
+  // @ViewChild('myCanvas') canvas: any;
 
   canvasElement: any;
   lastX: number;
@@ -20,7 +23,7 @@ export class SignComponent implements OnInit {
   currentColour: string = '#000';
   brushSize: number = 2;
 
-  constructor(public platform: Platform, public renderer: Renderer) {
+  constructor(public platform: Platform, public renderer: Renderer, private storage: StorageService, private nav: NavController) {
       console.log('Hello CanvasDraw Component');
   }
 
@@ -66,6 +69,14 @@ export class SignComponent implements OnInit {
   clearCanvas(){
     let ctx = this.canvasElement.getContext('2d');
     ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);   
+  }
+
+  public saveImage(){
+    const firma = this.canvasElement.toDataURL();
+    var b64 = firma.split('base64,')[1];
+    this.storage.save(environment.firmaAuth, b64);
+    console.log("Firma: "+b64);
+    this.nav.navigateForward('/userFingerSign');
   }
 
 }

@@ -19,6 +19,8 @@ import { UserOcrComponent } from './componets/user/user-ocr/user-ocr.component';
 import { UserIneComponent } from './componets/user/user-ine/user-ine.component';
 import { UserKycComponent } from './componets/user/user-kyc/user-kyc.component';
 import { UserOtpComponent } from './componets/user/user-otp/user-otp.component';
+import { UserDocumentsComponent } from './componets/user/user-documents/user-documents.component';
+import { UserSignComponent } from './componets/user/user-sign/user-sign.component';
 import { UserEndComponent } from './componets/user/user-end/user-end.component';
 
 import { TesterComponent } from './componets/test/tester/tester.component';
@@ -45,6 +47,8 @@ const routes: Routes = [
   { path: 'userINE', component: UserIneComponent, pathMatch: 'full' },
   { path: 'userKyc', component: UserKycComponent, pathMatch: 'full' },
   { path: 'userOtp', component: UserOtpComponent, pathMatch: 'full' },
+  { path: 'userDocuments', component: UserDocumentsComponent, pathMatch: 'full' },
+  { path: 'userSign', component: UserSignComponent, pathMatch: 'full' },
   { path: 'userEnd', component: UserEndComponent, pathMatch: 'full' },
 
   { path: 'test', component: TesterComponent, pathMatch: 'full'}
