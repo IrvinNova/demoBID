@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
+
 
 
 @Component({
@@ -22,6 +24,7 @@ export class UserBuroComponent implements OnInit {
   acepta: any;
   pregunta1: any; pregunta2: any; pregunta3: any;
   fecha_hoy: any;
+  public logout: string = environment.logo_blanco;
 
   constructor(public navCtrl: NavController,
     private alertCtrl: AlertController,) { }
@@ -53,18 +56,16 @@ export class UserBuroComponent implements OnInit {
     const alert = await this.alertCtrl.create({
       header: '',
       // tslint:disable-next-line:max-line-length
-      message: '<div text-center><span>¿Autorizas consultar tu Buró de Crédito?</span>' + '<img src="../../assets/imgs/kia-finance-logo-190.png" class="logo_kia_cent"></div><br/> <p  class="font_size_p_alert">Hoy siendo ' + day + ' de ' + meses[month] + ' del ' + anio + ', autoriza a CETELEM SA DE CV SOFOM ER a consultar sus antecedentes crediticios por única ocasión ante las Sociedades Información Crediticia que estime conveniente, declarando que conoce la naturaleza, alcance y uso que CETELEM SA DE CV SOFOM ER hará de tal información.</p> <p class="font_size_p_alert">CETELEM SA DE CV SOFOM ER socio exclusivo de la marca KIA Finance de México.</p>',
+      message: '<div text-center><span>¿Autorizas consultar tu Buró de Crédito?</span>' + '</div><br/> <p  class="font_size_p_alert">Hoy siendo ' + day + ' de ' + meses[month] + ' del ' + anio + ', autoriza a "EMPRESA" a consultar sus antecedentes crediticios por única ocasión ante las Sociedades Información Crediticia que estime conveniente, declarando que conoce la naturaleza, alcance y uso que "EMPRESA" hará de tal información.</p>',
       backdropDismiss: false,
       buttons: [
         {
-          cssClass: 'boton1',
           text: 'SI, ACEPTO',
           handler: () => {
             this.acepta = '1';
             console.log('Confirm Okay');
         }
         }, {
-          cssClass: 'boton2',
           text: 'NO, ACEPTO',
           handler: () => {
              this.acepta = '0';

@@ -25,6 +25,7 @@ import { PdfComponent } from './bid/components/pdf/pdf.component';
 import { EnrollmentModule } from './bid/components/enrollment/enrollment.module';
 import { LoadingModule } from './bid/components/loading/loading.module';
 
+
 // register
 import { RegisterMainComponent } from './componets/register/register-main/register-main.component';
 import { RegisterIdComponent } from './componets/register/register-id/register-id.component';
@@ -46,6 +47,7 @@ import { UserIneComponent } from './componets/user/user-ine/user-ine.component';
 import { UserKycComponent } from './componets/user/user-kyc/user-kyc.component';
 import { UserBuroComponent } from './componets/user/user-buro/user-buro.component';
 import { UserOtpComponent } from './componets/user/user-otp/user-otp.component';
+import { UserTermsComponent } from './componets/user/user-terms/user-terms.component';
 import { UserDocumentsComponent } from './componets/user/user-documents/user-documents.component';
 import { UserShowDocumentComponent } from './componets/user/user-show-document/user-show-document.component';
 import { UserSignComponent } from './componets/user/user-sign/user-sign.component';
@@ -81,6 +83,7 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     UserKycComponent,
     UserBuroComponent,
     UserOtpComponent,
+    UserTermsComponent,
     UserDocumentsComponent,
     UserShowDocumentComponent,
     UserSignComponent,
