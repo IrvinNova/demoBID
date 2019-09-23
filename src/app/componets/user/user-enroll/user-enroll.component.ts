@@ -22,6 +22,7 @@ export class UserEnrollComponent implements OnInit {
 
   public data: Enroll;
   public logo: string = environment.logo;
+  public logout: string = environment.logo_blanco;
   
   private token: string;
   private login: LoginModel;

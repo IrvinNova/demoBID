@@ -13,6 +13,7 @@ import { ReadDocument } from '../../../services/readDocument/readDocument.servic
 })
 export class UserShowDocumentComponent implements OnInit {
 
+  public logout: string = environment.logo_blanco;
   data: any;
   pdf: any;
 

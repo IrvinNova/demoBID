@@ -20,6 +20,7 @@ import { UserIneComponent } from './componets/user/user-ine/user-ine.component';
 import { UserKycComponent } from './componets/user/user-kyc/user-kyc.component';
 import { UserBuroComponent } from './componets/user/user-buro/user-buro.component';
 import { UserOtpComponent } from './componets/user/user-otp/user-otp.component';
+import { UserTermsComponent } from './componets/user/user-terms/user-terms.component';
 import { UserDocumentsComponent } from './componets/user/user-documents/user-documents.component';
 import { UserShowDocumentComponent } from './componets/user/user-show-document/user-show-document.component';
 import { UserSignComponent } from './componets/user/user-sign/user-sign.component';
@@ -29,7 +30,7 @@ import { UserEndComponent } from './componets/user/user-end/user-end.component';
 import { TesterComponent } from './componets/test/tester/tester.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '', redirectTo: 'userEnd', pathMatch: 'full' },
   //{ path: '', redirectTo: 'test', pathMatch: 'full' },
   { path: 'main', component: MainComponent, pathMatch: 'full' },
   { path: 'registerMain', component: RegisterMainComponent, pathMatch: 'full' },
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'userKyc', component: UserKycComponent, pathMatch: 'full' },
   { path: 'userBuro', component: UserBuroComponent, pathMatch: 'full' },
   { path: 'userOtp', component: UserOtpComponent, pathMatch: 'full' },
+  { path: 'UserTerms', component: UserTermsComponent, pathMatch: 'full' },
   { path: 'userDocuments', component: UserDocumentsComponent, pathMatch: 'full' },
   { path: 'userShowDocument', component: UserShowDocumentComponent, pathMatch: 'full' },
   { path: 'userSign', component: UserSignComponent, pathMatch: 'full' },
