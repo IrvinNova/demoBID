@@ -72,7 +72,7 @@ export class UserOtpComponent implements OnInit {
       this.loading.hide();
       this.alert.presentAlert('¡Ocurrio un problema!', 'El codigo no puede ir en blanco', '', ['Entiendo']);
     } else {
-      this.otpService.validateOtp(this.codigoOtp, this.token, this.operation, this.login.user)
+      this.otpService.validateOtp(this.codigoOtp, this.token, this.operation.operationId, this.login.user)
           .subscribe(result => {
               console.log('Validate Result', result);
               if (result['code'] === -9999){

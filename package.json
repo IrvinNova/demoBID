@@ -36,6 +36,7 @@
     "cordova-sqlite-storage": "^3.3.0",
     "core-js": "^2.5.4",
     "facialbidmitek": "file:pluginsSRC/FacialBidMitek",
+    "ngx-extended-pdf-viewer": "^1.5.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

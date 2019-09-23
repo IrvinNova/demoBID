@@ -22,7 +22,6 @@ export class UserEnrollComponent implements OnInit {
 
   public data: Enroll;
   public logo: string = environment.logo;
-  public logout: string = environment.logo_blanco;
   
   private token: string;
   private login: LoginModel;
@@ -50,12 +49,14 @@ export class UserEnrollComponent implements OnInit {
     this.operation = await this.storage.get(environment.operation);
     this.person = await this.storage.get(environment.person);
     this.data.data = await this.storage.get(environment.hand);
+    this.enrollment.initFingers(this.data.data);
     this.right_valid = await this.storage.get(environment.right_valid);
     this.data.enrollRight = this.right_valid;
     this.left_valid = await this.storage.get(environment.left_valid);
     this.data.enrollLeft = this.left_valid;
     if(this.left_valid){this.enrollment.toggleLeft();}
     if(this.right_valid){this.enrollment.toggleRight();}
+    console.log('First fingers', JSON.stringify(this.enrollment.control));
     this.loading.hide();
   }
 
@@ -116,6 +117,8 @@ export class UserEnrollComponent implements OnInit {
     if(this.data.enrollLeft && this.data.enrollRight) {
       this.storage.save(environment.fingers_storage, this.data.data);
       this.storage.save(environment.hand, this.data.data);
+      console.log('Final fingers', JSON.stringify(this.enrollment.control));
+      console.log('Final hand fingers', JSON.stringify(this.data.data));
       this.nav.navigateForward('/userFacial');
     }else{
       this.alert.presentAlert('Error', 'No se han capturado las huellas', 'Intente capturar sus huellas nuevamente', ['OK']);

@@ -23,7 +23,6 @@ export class UserIneComponent implements OnInit {
   public data: Ine = new Ine();
   public dataOcr: Ocr;
   public logo: string = environment.logo;
-  public logout: string = environment.logo_blanco;
 
   private token: string;
   private login: LoginModel;
@@ -83,7 +82,9 @@ export class UserIneComponent implements OnInit {
                     this.data.aPaterno = this.dataOcr.aPaterno;
                     this.data.aManterno = this.dataOcr.aMaterno;
                     this.data.ocr = this.dataOcr.ocr;
-                    let porcentaje: string = ((+result['data']['response']['minutiaeResponse']['similitud2'].substring(0, result['data']['response']['minutiaeResponse']['similitud2'].length - 1) + +result['data']['response']['minutiaeResponse']['similitud7'].substring(0, result['data']['response']['minutiaeResponse']['similitud7'].length - 1))/2).toString();
+                    let val1: number = +result['data']['response']['minutiaeResponse']['similitud2'].substring(0, result['data']['response']['minutiaeResponse']['similitud2'].length - 1);
+                    let val2: number = +result['data']['response']['minutiaeResponse']['similitud7'].substring(0, result['data']['response']['minutiaeResponse']['similitud7'].length - 1);
+                    let porcentaje: string = val1 >= val2 ? val1.toString(): val2.toString();
                     console.log(porcentaje);
                     this.data.similitud = +(porcentaje.substring(0, 5));
                     this.data.aprove = result['data']['response']['status'] === 'Aceptado'; 
@@ -135,7 +136,7 @@ export class UserIneComponent implements OnInit {
   }
 
   public continue(): void{
-    this.nav.navigateForward('/userKyc');
+    this.nav.navigateForward('/userEnd');
   }
 
   public finalizar(): void{

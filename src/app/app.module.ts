@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera/ngx';
 import { Device } from '@ionic-native/device/ngx';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 import { CameraModule } from './bid/components/camera/camera.module';
 import { ModalModule } from './bid/components/modal/modal.module';
@@ -43,7 +44,12 @@ import { UserFacialComponent } from './componets/user/user-facial/user-facial.co
 import { UserOcrComponent } from './componets/user/user-ocr/user-ocr.component';
 import { UserIneComponent } from './componets/user/user-ine/user-ine.component';
 import { UserKycComponent } from './componets/user/user-kyc/user-kyc.component';
+import { UserBuroComponent } from './componets/user/user-buro/user-buro.component';
 import { UserOtpComponent } from './componets/user/user-otp/user-otp.component';
+import { UserDocumentsComponent } from './componets/user/user-documents/user-documents.component';
+import { UserShowDocumentComponent } from './componets/user/user-show-document/user-show-document.component';
+import { UserSignComponent } from './componets/user/user-sign/user-sign.component';
+import { UserFingerSignComponent } from './componets/user/user-finger-sign/user-finger-sign.component';
 import { UserEndComponent } from './componets/user/user-end/user-end.component';
 
 // tester
@@ -72,7 +78,12 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     UserOcrComponent,
     UserIneComponent,
     UserKycComponent,
+    UserBuroComponent,
     UserOtpComponent,
+    UserDocumentsComponent,
+    UserShowDocumentComponent,
+    UserSignComponent,
+    UserFingerSignComponent,
     UserEndComponent,
 
     // tester
@@ -90,11 +101,15 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxExtendedPdfViewerModule,
     CameraModule,
     ModalModule,
     LoadingModule,
     IonicStorageModule.forRoot(),
     EnrollmentModule
+  ],
+  exports: [
+    NgxExtendedPdfViewerModule
   ],
   providers: [
     StatusBar,
