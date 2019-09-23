@@ -44,9 +44,12 @@ import { UserFacialComponent } from './componets/user/user-facial/user-facial.co
 import { UserOcrComponent } from './componets/user/user-ocr/user-ocr.component';
 import { UserIneComponent } from './componets/user/user-ine/user-ine.component';
 import { UserKycComponent } from './componets/user/user-kyc/user-kyc.component';
+import { UserBuroComponent } from './componets/user/user-buro/user-buro.component';
 import { UserOtpComponent } from './componets/user/user-otp/user-otp.component';
 import { UserDocumentsComponent } from './componets/user/user-documents/user-documents.component';
+import { UserShowDocumentComponent } from './componets/user/user-show-document/user-show-document.component';
 import { UserSignComponent } from './componets/user/user-sign/user-sign.component';
+import { UserFingerSignComponent } from './componets/user/user-finger-sign/user-finger-sign.component';
 import { UserEndComponent } from './componets/user/user-end/user-end.component';
 
 // tester
@@ -75,9 +78,12 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     UserOcrComponent,
     UserIneComponent,
     UserKycComponent,
+    UserBuroComponent,
     UserOtpComponent,
     UserDocumentsComponent,
+    UserShowDocumentComponent,
     UserSignComponent,
+    UserFingerSignComponent,
     UserEndComponent,
 
     // tester

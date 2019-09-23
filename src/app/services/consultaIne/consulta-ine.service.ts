@@ -23,34 +23,32 @@ export class ConsultaIneService {
 
   createJIne(fingers: any, dataPerson: Ocr, opId: any, systemCode: any) {
     const request = {
-        operationId: opId,
-        metadata: {
-            userId: 1
-        },
-        data: {
-            appeal: {},
-            request: {
-                cliente: 'FINBE',
-                indice: systemCode,
-                ejecutivo: 'prueba',
-                ocr: dataPerson.ocr,
-                cic: '',
-                nombre: 'PRUEBAS',
-                apellidoPaterno: dataPerson.aPaterno,
-                apellidoMaterno: dataPerson.aMaterno,
-                anioRegistro: dataPerson.registro,
-                anioEmision: dataPerson.emision,
-                numeroEmisionCredencial: '01',
-                claveElector: dataPerson.claveElector,
-                curp: dataPerson.curp,
-                minucia2: fingers.get('rightIndex'),
-                minucia7:  fingers.get('leftIndex')
-            }
-    }
-
+      operationId: opId,
+      metadata: {
+          userId: 1
+      },
+      data: {
+        appeal: {},
+        request: {
+          cliente: 'FINBE',
+          ejecutivo: 'prueba',
+          ocr: dataPerson.ocr,
+          cic: '',
+          nombre: dataPerson.nombre,
+          apellidoPaterno: dataPerson.aPaterno,
+          apellidoMaterno: dataPerson.aMaterno,
+          anioRegistro: dataPerson.registro,
+          anioEmision: dataPerson.emision,
+          numeroEmisionCredencial: '01',
+          claveElector: dataPerson.claveElector,
+          curp: dataPerson.curp,
+          minucia2: fingers.get('rightIndex').split('\n').join().split('\r').join(),
+          minucia7: fingers.get('leftIndex').split('\n').join().split('\r').join()
+        }
+      }
     };
     
-    // console.log('REQUEST INE  ',  JSON.stringify(request));
+    console.log('REQUEST INE ',  JSON.stringify(request));
     return request;
   }
 }
