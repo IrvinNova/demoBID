@@ -8,31 +8,42 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./user-terms.component.scss'],
 })
 export class UserTermsComponent implements OnInit {
-  isChecked: boolean;
+  checkP1: boolean; checkP2: boolean; checkP3: boolean; checkP4: boolean; checkP5: boolean; checkP6: boolean;
   isValido: boolean;
   public logout: string = environment.logo_blanco;
 
   constructor(private navCtrl: NavController) {
-    this.isChecked = false;
+    this.checkP1 = false; 
+    this.checkP2 = false; 
+    this.checkP3 = false; 
+    this.checkP4 = false; 
+    this.checkP5 = false; 
+    this.checkP6 = false; 
     this.isValido = true;
    }
 
   ngOnInit() {}
 
-  aceptarAvisoProvacidad() {
-    if (this.isChecked  === true) {
+  aceptarAvisoPrivacidad() {
+    if (this.checkP1 && this.checkP4 && this.checkP5 && this.checkP6 === true) {
       this.isValido = false;
     } else {
       this.isValido = true;
     }
   }
 
-  clickAceptarAvisoProvacidad() {
-    if (this.isChecked  === true) {
-      this.isChecked = false;
+  clickAceptarAvisoPrivacidad() {
+    if (this.checkP1 && this.checkP4 && this.checkP5 && this.checkP6  === true) {
+      this.checkP1 = false;
+      this.checkP4 = false;
+      this.checkP5 = false;
+      this.checkP6 = false;
       this.isValido = false;
     } else {
-      this.isChecked = true;
+      this.checkP1 = true;
+      this.checkP4 = true;
+      this.checkP5 = true;
+      this.checkP6 = true;
       this.isValido = true;
     }
   }
@@ -41,8 +52,8 @@ export class UserTermsComponent implements OnInit {
     this.navCtrl.pop();
   }
 
-  goUserDocuments() {
-    this.navCtrl.navigateForward('/UserDocuments');
+  goUserOtp() {
+    this.navCtrl.navigateForward('/userOtp');
   }
 
 }

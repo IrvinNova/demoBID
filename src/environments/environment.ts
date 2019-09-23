@@ -11,6 +11,7 @@ export const environment = {
   logo: '/assets/logo_BID.png', 
   logo_light: '/assets/logo_blanco_2.png',
   logo_blanco: '/assets/logo_blanco_2.png',
+  logo_face: '/assets/Selfie_Bio.png',
   logo_carga: '/assets/loading_BID_2.gif',
   ocr_timeout: 2000,
 

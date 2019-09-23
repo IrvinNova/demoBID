@@ -13,42 +13,57 @@
   
   <ion-content padding>
       <ion-row>
-          <ion-col  size="12"><b>Terminos y Condiciones</b></ion-col>
+          <ion-col  size="12"><b>Términos y condiciones</b></ion-col>
         </ion-row> 
       <ion-row>
-          <div class="div_aviso_privacidad ion-text-justify" padding>
-              <p><b>Constancia de puesta a disposición del Aviso de Privacidad</b></p>
-               <p><b>(Confidencialidad y Privacidad de la información y datos personales)</b></p>  
-               <p>"BURÓ IDENTIDAD" S.A. DE C.V. ("BID"), con domicilio en calle Aristóteles, número 210, Colonia Polanco, Código
-                  Postal 11150, Ciudad de México, México, utilizará sus datos personales recabados para poder iniciar el proceso de análisis de viabilidad crediticia y financiera, para lo cual
-                  es necesario que nos proporcione ciertos datos personales, financieros y patrimoniales que pudieran ser considerados datos sensibles, por lo que, por este medio
-                  OTORGO MI CONSENTIMIENTO a "BURÓ DE IDENTIDAD", S.A. de C.V., así como sus subsidiarias, afiliadas, controladora y demás empresas
-                  relacionadas (en lo sucesivo “BID”) para realizar el tratamiento de los datos personales y datos personales sensibles proporcionados, conforme a los términos
-                  establecidos en el "Aviso de Privacidad Integral" ("API"), el cual se me ha puesto a disposición en cuanto a su contenido íntegro, indicándome que puede ser consultado a
-                  través de la página de internet www.bid.com.mx. Igualmente, otorgo mi consentimiento expreso a "BID" para que los datos personales y datos personales
-                  sensibles proporcionados, puedan ser compartidos para el único efecto de la realización de procedimientos de seguimiento y administración del producto o servicio
-                  solicitado, consultas de historial crediticio, autenticación de identidad, procesos de verificación por entidades externas y autoridades y registros públicos entre otras
-                  autoridades, para integrar debidamente la presente solicitud. Para mayor información acerca del tratamiento y de los derechos que pueden hacer valer, puede accesar al
-                  "API" a través de la página de Internet antes referida o contactar al Departamento Especializado de Datos Personales al correo electrónico siguiente:
-                  biddatospersonales@buroidentidad.com, en donde podrán atender sus solicitudes y ejercer sus derechos ARCO.
-                  </p>
+        <ion-grid>
+          <div padding>
+            <table>
+              <tr>
+              <td class="space"><ion-checkbox class="vertical_aling" color="primary" [(ngModel)]="checkP1" (ionChange)="aceptarAvisoPrivacidad()"></ion-checkbox><span class="font_size_p"><button class="style_button_1" (click)="clickAceptarAvisoProvacidad()"></button></span></td>
+              <td class="space">Acepto la relación de amistad que iniciaré con BID a la firma de este contrato. </td>
+              </tr>
+
+              <tr>
+              <td class="space"><ion-checkbox class="vertical_aling" color="primary" [(ngModel)]="checkP2" (ionChange)="aceptarAvisoPrivacidad()"></ion-checkbox><span class="font_size_p"><button class="style_button_1" (click)="clickAceptarAvisoProvacidad()"></button></span></td>
+              <td class="space">Autorizo que BID me contacte al teléfono o correo que proporcioné para una invitación a cenar. </td>
+              </tr>
+
+              <tr>
+              <td class="space"><ion-checkbox class="vertical_aling" color="primary" [(ngModel)]="checkP3" (ionChange)="aceptarAvisoPrivacidad()"></ion-checkbox><span class="font_size_p"><button class="style_button_1" (click)="clickAceptarAvisoProvacidad()"></button></span></td>
+              <td class="space">Autorizo el Intercambio de Información con fines Publicitarios y de Mercadotecnia. </td>
+              </tr>
+
+              <tr>
+              <td class="space"><ion-checkbox class="vertical_aling" color="primary" [(ngModel)]="checkP4" (ionChange)="aceptarAvisoPrivacidad()"></ion-checkbox><span class="font_size_p"><button class="style_button_1" (click)="clickAceptarAvisoProvacidad()"></button></span></td>
+              <td class="space">Certifico que tomo conocimiento del Aviso de Privacidad de BID, el que me ha sido informado de forma amplia y completa, a mi entera satisfacción. </td>
+              </tr>
+
+              <tr>
+              <td class="space"><ion-checkbox class="vertical_aling" color="primary" [(ngModel)]="checkP5" (ionChange)="aceptarAvisoPrivacidad()"></ion-checkbox><span class="font_size_p"><button class="style_button_1" (click)="clickAceptarAvisoProvacidad()"></button></span></td>
+              <td class="space">Autorizo que se consulte mi reporte de crédito ante las sociedades de información crediticia. </td>
+              </tr>
+
+              <tr>
+              <td class="space"><ion-checkbox class="vertical_aling" color="primary" [(ngModel)]="checkP6" (ionChange)="aceptarAvisoPrivacidad()"></ion-checkbox><span class="font_size_p"><button class="style_button_1" (click)="clickAceptarAvisoProvacidad()"></button></span></td>
+              <td class="space">Autorizo que mis datos sean utilizados para consulta con fuentes externas como INE y RENAPO. </td>
+              </tr>
+            
+
+            </table>
             </div>
+          </ion-grid>
       </ion-row>  
       <ion-row>
-          <ion-col size="12" class="style_col_term">
-              <ion-checkbox class="vertical_aling" color="primary" [(ngModel)]="isChecked" (ionChange)="aceptarAvisoProvacidad()"></ion-checkbox><span class="font_size_p"><button class="style_button_1" (click)="clickAceptarAvisoProvacidad()">*He leído y acepto los términos y condiciones </button> </span> 
-  <!--           <ion-checkbox class="vertical_aling" color="primary" [(ngModel)]="isChecked" (ionChange)="aceptarAvisoProvacidad()"></ion-checkbox><span class="font_size_p" (click)="clickAceptarAvisoProvacidad()"> *He leído y acepto los términos de las </span><a class="font_size_a">Politicas de Privacidad</a>  -->
-          </ion-col>
         </ion-row>
   
         
   </ion-content>
   <ion-footer>
       <ion-toolbar>
-          <ion-button color="primary" class="color_button" expand="block" (click)="goUserDocuments()" [disabled]="isValido">
+          <ion-button color="primary" class="color_button" expand="block" (click)="goUserOtp()" [disabled]="isValido">
               <ion-ripple-effect></ion-ripple-effect>
               Siguiente
-              <ion-icon slot="end" name="arrow-dropright"></ion-icon>
             </ion-button>
       </ion-toolbar>
     </ion-footer> 

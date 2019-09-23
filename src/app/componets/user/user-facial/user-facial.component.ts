@@ -16,6 +16,7 @@ export class UserFacialComponent implements OnInit {
 
   public logo: string = environment.logo;
   public logout: string = environment.logo_blanco;
+  public selfie: string = environment.logo_face;
 
   @ViewChild(LoadingComponent, {static: true}) loading: LoadingComponent;
 

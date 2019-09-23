@@ -53,6 +53,7 @@ import { UserShowDocumentComponent } from './componets/user/user-show-document/u
 import { UserSignComponent } from './componets/user/user-sign/user-sign.component';
 import { UserFingerSignComponent } from './componets/user/user-finger-sign/user-finger-sign.component';
 import { UserEndComponent } from './componets/user/user-end/user-end.component';
+import { UserPrivacyComponent } from './componets/user/user-privacy/user-privacy.component';
 
 // tester
 import { TesterComponent } from './componets/test/tester/tester.component';
@@ -71,6 +72,7 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     RegisterEndComponent,
 
     UserMainComponent,
+    UserPrivacyComponent,
     UserFingersComponent,
     UserFingersVerifyComponent,
     UserIdComponent,
