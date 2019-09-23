@@ -548,12 +548,12 @@ public class FingersBidEnrollment extends CordovaPlugin {
     }
 
     private boolean validateFingerQuality(int quality, String finger) {
-        if(quality > 2 && finger.equals("index")) {
+        if(quality > 3 && finger.equals("index")) {
             Log.e("Falla Verificacion", "prueba");
 
             return false;
         }
-        if(quality > 3 && !finger.equals("index")){
+        if(quality > 4 && !finger.equals("index")){
             Log.e("Falla Verificacion", "prueba");
 
             return false;

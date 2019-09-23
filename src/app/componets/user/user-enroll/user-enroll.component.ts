@@ -66,7 +66,7 @@ export class UserEnrollComponent implements OnInit {
     this.data.data = hand;
     this.data.enrollLeft = true;
     this.data.leftData = true;
-    this.continue();
+    this.enroll();
   }
 
   public right(hand: Hands) {
@@ -74,7 +74,7 @@ export class UserEnrollComponent implements OnInit {
     this.data.data = hand;
     this.data.enrollRight = true;
     this.data.rightData = true;
-    this.continue();
+    this.enroll();
   }
   
   public both(hand: Hands){
@@ -84,7 +84,7 @@ export class UserEnrollComponent implements OnInit {
     this.data.enrollLeft = true;
     this.data.rightData = true;
     this.data.leftData = true;
-    this.continue();
+    this.enroll();
   }
 
   public enroll() {

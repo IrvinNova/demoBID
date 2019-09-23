@@ -210,15 +210,15 @@ export class ReadDocument {
                 campos: [
                     {
                         nombre:"USU",
-                        valor: "Nombre completo"
+                        valor: this.data_client.nombre + ' ' + this.data_client.aPaterno + ' ' + this.data_client.aMaterno
                     },
                     {
                         nombre:"CURP",
-                        valor: "CURP"
+                        valor: this.data_client.curp
                     },
                     {
                         nombre:"DOM",
-                        valor: "Domicilio"
+                        valor: this.data_client.address
                     },
                     {
                         nombre:"APRI",
@@ -234,7 +234,7 @@ export class ReadDocument {
                     },
                     {
                         nombre: "FIRM",
-                        valor: "Nombre para firma"
+                        valor: firmaBio
                     }
                 ]
             }

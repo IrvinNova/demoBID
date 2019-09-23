@@ -14,7 +14,7 @@ export class SignComponent implements OnInit {
   public undo: boolean = true;
   public background: boolean = false;
 
-  @ViewChild('myCanvas', {static: true}) canvas: any;
+  @ViewChild('myCanvas', {static: false}) canvas: any;
 
   canvasElement: any;
   lastX: number;

@@ -62,7 +62,7 @@ export class UserDocumentsComponent implements OnInit {
   }
 
   public firma_autografa() {
-    this.nav.navigateForward('/userSign');
+    this.nav.navigateRoot('/userSign');
   }
 
   pdfObj(data) {

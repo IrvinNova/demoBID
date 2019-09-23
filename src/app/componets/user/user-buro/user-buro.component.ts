@@ -83,9 +83,11 @@ export class UserBuroComponent implements OnInit {
         this.validacion();
       } else {
        // navegacion a la siguiente pagina
+       this.navCtrl.navigateRoot('/userDocuments');
       }
     } else {
       // navegacio
+      this.navCtrl.navigateRoot('/userDocuments');
     }
   }
 
@@ -100,7 +102,7 @@ export class UserBuroComponent implements OnInit {
   async validacion() {
     const alert = await this.alertCtrl.create({
       // tslint:disable-next-line:max-line-length
-      message: '<div><img src="../../assets/imgs/kia-finance-logo-190.png" class="logo_kia_cent"></div><br/> <p>Debes ingresar  los últimos cuatro dígitos de tu tarjeta</p>',
+      message: '<div></div><br/> <p>Debes ingresar  los últimos cuatro dígitos de tu tarjeta</p>',
       buttons: ['OK']
     });
     await alert.present();
@@ -192,4 +194,9 @@ export class UserBuroComponent implements OnInit {
       this.fill_p3_n = 'outline';
     }
   }
+
+  back() {
+    this.navCtrl.pop();
+  }
+
 }
