@@ -11,6 +11,7 @@ export class UserMainComponent implements OnInit {
 
   public logo: string = environment.logo;
   public logo_light: string = environment.logo_light;
+  public logout: string = environment.logo_blanco;
 
   constructor(private nav: NavController) { }
 

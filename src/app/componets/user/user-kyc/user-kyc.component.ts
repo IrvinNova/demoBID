@@ -13,6 +13,7 @@ import { UserKYC } from './user-kyc';
 export class UserKycComponent implements OnInit {
 
   public controls: UserKYC;
+  public logout: string = environment.logo_blanco;
 
   constructor(
     private nav: NavController,

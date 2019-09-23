@@ -22,6 +22,7 @@ export class UserOtpComponent implements OnInit {
   private email: string;
   private token: any;
   private operation: any;
+  public logout: string = environment.logo_blanco;
 
   @ViewChild(LoadingComponent, {static: true}) loading: LoadingComponent;
 

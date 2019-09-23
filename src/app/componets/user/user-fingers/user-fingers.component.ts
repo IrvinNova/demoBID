@@ -172,6 +172,10 @@ export class UserFingersComponent implements OnInit {
                 });
   }
 
+  public back(){
+    this.nav.pop();
+  }
+
   public continue() {
     this.nav.navigateRoot('/userFingersVerify');
   }

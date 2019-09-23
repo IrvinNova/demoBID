@@ -20,4 +20,8 @@ export class RegisterEndComponent implements OnInit {
     this.nav.navigateRoot('main');
   }
 
+  public back(){
+    this.nav.pop();
+  }
+
 }
