@@ -90,6 +90,7 @@ export class UserEnrollComponent implements OnInit {
   public enroll() {
     this.loading.show();
     this.storage.save(environment.hand, this.data.data);
+    console.log('Finger antes de Enroll', this.data.data);
     // Servicio de enrolamiento de huellas del cliente
     this.biometric_serv.enrollBiometric(this.data.data, this.token, this.operation.operationId, this.operation.systemCode, this.person.id, '', 2)
     .subscribe( result => {
