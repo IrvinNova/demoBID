@@ -63,6 +63,50 @@ export class OcrService {
         this.finish = true;
       });
   }
+  
+  pass_Ocr(front: any, token: any, opId: any) {
+
+    const formData = new FormData();
+    formData.append('json', '{}');
+    formData.append('personID', '0');
+    formData.append('docCode1', 'IDOFA');
+    formData.append('file1', front);
+    formData.append('content', 'image/jpeg');
+    formData.append('operationID', opId);
+
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + token
+    });
+
+    return this.http.post(environment.servicesURL + environment.ocr, formData, {headers} )
+      .subscribe( data => {
+        console.log(data);
+        this.resulDto.nombre = data['analisys']['name'];
+        this.resulDto.aPaterno = data['analisys']['firstSurname'];
+        this.resulDto.aMaterno = data['analisys']['secondSurname'];
+        this.resulDto.registro = data['analisys']['registry_YEAR'];
+        this.resulDto.emision = data['analisys']['expedition_DATE'];
+        this.resulDto.claveElector = data['analisys']['claveElector'];
+        this.resulDto.curp = data['analisys']['curp'];
+        this.resulDto.address = data['analisys']['address'];
+
+        if(data['analisys']['curp']) {
+          this.resulDto.rfc = data['analisys']['curp'].substring(0,10);
+        }
+        
+        this.resulDto.ocr = data['analisys']['crc_SECTION'];
+        this.resulDto.vigencia = data['analisys']['dateOfExpiry'];
+        this.resulDto.nacimiento = data['analisys']['dateOfBirth'];
+        this.resulDto.message = data['analisys']['message'];
+        console.log('INE-OCR', this.resulDto);
+        this.crash = false;
+        this.finish = true;
+      }, error => {
+        console.log(error);
+        this.crash = true;
+        this.finish = true;
+      });
+  }
 
   comprobanteDomicilioOcr(document: any, token: any, opId: any) {
 

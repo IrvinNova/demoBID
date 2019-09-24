@@ -29,6 +29,7 @@ export class UserIdComponent implements OnInit {
   public logout: string = environment.logo_blanco;
 
   public cameraNames: string[] = ['Anverso','Reverso'];
+  public cameraPasaporte: string[] = ['Pasaporte'];
   private token: string;
   private login: LoginModel;
   private operation: OperationsObj;
@@ -40,6 +41,7 @@ export class UserIdComponent implements OnInit {
   private operationId: number;
   private documentos: any[] = [];
   private count: number = 0;
+  public tipoID: string;
 
   constructor(private nav: NavController,
               private alert: AlertService,
@@ -59,6 +61,7 @@ export class UserIdComponent implements OnInit {
     this.operation = await this.storage.get(environment.operation);
     this.dataClient = await this.storage.get(environment.dataClient);
     this.person = await this.storage.get(environment.person);
+    this.tipoID = 'ine';
     this.loading.hide();
   }
 
@@ -72,7 +75,51 @@ export class UserIdComponent implements OnInit {
     }
   }
 
+  public precallOCR(){
+    if(this.tipoID !== 'ine'){this.data.direction = false;}
+    this.storage.save(environment.front_id, this.data.frontRaw);
+    this.storage.save(environment.id_kind, this.tipoID);
+    if(this.tipoID == 'ine'){
+      this.callOCR();
+    }else if(this.tipoID === 'pass'){
+      this.callOCRPass();
+    }else if(this.tipoID === 'fm2'){
+      this.callOCRFM();
+    }else{
+      this.alert.presentAlert('Error', 'No has seleccionado ningun tipo de identificación', 'Selecciona una opción para continuar', ['OK']);
+    }
+  }
+
   public callOCR() {
+    if(this.data.back && this.data.front) {
+      this.loading.show();
+      this.operationId = this.operation.operationId;
+      this.ocr_serv.ine_Ocr(CreateBolb.b64toBlob(this.data.frontRaw, 'image/jpeg', 512), CreateBolb.b64toBlob(this.data.backRaw, 'image/jpeg', 512), this.token, this.operation.operationId);
+      // Llenando array de los datos que se necesitan mandar al servicio de guardado de Doc
+      this.documentos.push(CreateBolb.b64toBlob(this.data.frontRaw, 'image/jpeg', 512));
+      this.documentos.push(CreateBolb.b64toBlob(this.data.backRaw, 'image/jpeg', 512));
+      this.loading.hide();
+      this.saveDocumentos();
+    }else{
+      this.alert.presentAlert('Error', 'No has insertado ambas imagenes correctamente', 'Ingresa ambos lados de tu identificación para continuar', ['OK']);
+    }
+  }
+
+  public callOCRPass() {
+    if(this.data.front) {
+      this.loading.show();
+      this.operationId = this.operation.operationId;
+      this.ocr_serv.pass_Ocr(CreateBolb.b64toBlob(this.data.frontRaw, 'image/jpeg', 512), this.token, this.operation.operationId);
+      // Llenando array de los datos que se necesitan mandar al servicio de guardado de Doc
+      this.documentos.push(CreateBolb.b64toBlob(this.data.frontRaw, 'image/jpeg', 512));
+      this.loading.hide();
+      this.saveDocumentos();
+    }else{
+      this.alert.presentAlert('Error', 'No has insertado ninguna imagen', 'Ingresa la imagen para continuar', ['OK']);
+    }
+  }
+
+  public callOCRFM() {
     if(this.data.back && this.data.front) {
       this.loading.show();
       this.operationId = this.operation.operationId;

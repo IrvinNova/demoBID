@@ -20,6 +20,8 @@ export class Ocr {
 
     public address: string;
 
+    public tipoID: string;
+
     constructor(){
         this.nombre = '';
         this.aPaterno = '';
@@ -32,6 +34,7 @@ export class Ocr {
         this.ocr = '';
         this.vCurp = false;
         this.vRFC = false;
+        this.tipoID = '';
     }
 
     public allData(): boolean{
@@ -53,12 +56,12 @@ export class Ocr {
             this.nacimiento = date.getFullYear().toString();
             console.log('NACIMIENTO: ', this.nacimiento);
         }
-        /*if(this.vigencia){
+        if(this.vigencia){
             let date = new Date();
             date.setFullYear(this.vigencia.length > 4 ? +this.vigencia.substring(0, 4): +this.vigencia);
             this.vigencia = date.getFullYear().toString();
             console.log('VIGENCIA: ', this.vigencia);
-        }*/
+        }
         console.log(JSON.stringify(this));
         console.log((this.nombre.length >= 3 ) + ' - ' +  ( this.aPaterno.length >= 3 ) + ' - ' +  ( this.aMaterno.length >= 3 ) +  ' - ' +  ( this.validCurp() ) + ' - ' +  ( this.validRFC() ) + ' - ' +  ( this.ocr.length >= 3));
         return this.nombre.length >= 3 && this.aPaterno.length >= 3 && this.aMaterno.length >= 3 && this.validCurp() && this.validRFC() && this.ocr.length >= 3;

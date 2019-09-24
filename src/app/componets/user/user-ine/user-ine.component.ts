@@ -33,7 +33,11 @@ export class UserIneComponent implements OnInit {
   private fingers: Hands;
   private clientData: DataClient = new DataClient();
   private face: string;
+  private frontID: string;
   @ViewChild(LoadingComponent, {static: true}) loading: LoadingComponent;
+  private validaciones: number;
+
+  public tipoID: string;
 
   constructor(private nav: NavController,
               private alert: AlertService,
@@ -55,8 +59,10 @@ export class UserIneComponent implements OnInit {
     this.dataOcr = await this.storage.get(environment.dataOcr);
     this.clientData = await this.storage.get(environment.dataClient);
     this.face = await this.storage.get(environment.face_storage);
+    this.frontID = await this.storage.get(environment.front_id);
 
     this.fingers = await this.storage.get(environment.hand);
+    this.tipoID = await this.storage.get(environment.id_kind);
 
     this.mapaFingers.set('leftIndex', this.fingers.left_index.content);
     this.mapaFingers.set('rightIndex', this.fingers.right_index.content);
@@ -101,6 +107,20 @@ export class UserIneComponent implements OnInit {
 
               });
     
+  }
+
+  private compareFace(){
+    this.biometric_serv.compareFace(this.face, this.frontID, this.operation.operationId, this.token).subscribe((data)=> {
+      this.validaciones++;
+      if(this.validaciones == 2){this.loading.hide();}
+      if(data['code'] == -9999){
+        console.log('COMPARE FACE', JSON.stringify(data));
+        this.data.face = true;
+        this.data.similitudFace = +data['data']['similitud'].substring(0, 4);
+      }else{this.data.face = false;}
+    }, error => {
+      this.alert.presentAlertSimpleConfirm('Error', 'Ocurrio un error al concluir tu proceso, intentalo de nuevo', '', 'Reintentar', () => {this.compareFace();});
+    });
   }
 
   public back(){

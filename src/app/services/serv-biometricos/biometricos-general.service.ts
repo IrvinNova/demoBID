@@ -163,44 +163,30 @@ export class BiometricosGeneralService {
     return data;
   }
 
-  veriSign(data, token, operationId, userId) {
-
-    console.log('finger data sign', data);
-
+  compareFace(face: string, id: string, operation: number, token: string){
     const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + token,
-        'content-type': 'application/json'
-      });
-
-      return this.http.post(environment.servicesURL + environment.fingerVerify, JSON.stringify(this.genJsonFingers(data, operationId, userId)), {headers});
-
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(environment.servicesURL + environment.face_compare, JSON.stringify(this.compareFaceJ(id, face, operation)),  {headers});
   }
 
-  genJsonFingers(data, operationId, userId) {
-      const request = {
-          operationId: operationId,
-          data: {
-            leftindex: data['left_index']['content'],
-            leftmiddle: data['left_middle']['content'],
-            leftring: data['left_ring']['content'],
-            leftlittle: data['left_pinky']['content'],
-            rightindex: data['right_index']['content'],
-            rightmiddle: data['right_middle']['content'],
-            rightring: data['right_ring']['content'],
-            rightlittle: data['right_pinky']['content']
-          },
-          metadata: {
-            accuracy: 0,
-            deviceInfo: "Android",
-            latutide: 0,
-            longitude: 0,
-            timeZoneId: 1,
-            userId: userId
-          }
-        };
-        console.log('data before json', data);
-        console.log('JSON Fingers', JSON.stringify(request));
-        return request;
+  compareFaceJ(id: string, face: string, operation: number){
+    let base: BaseRequest = new BaseRequest();
+    base.metadata.userId = 1;
+    base.operationId = operation;
+    const data = {
+      operationId: operation,
+      data: {
+        credencial: id,
+        captura: face,
+        tipo: 'imagen',
+        limiteInferior: 80,
+        idCompania: 1
+      }
+    }
+    base.data = data;
+    return data;
   }
 
 }

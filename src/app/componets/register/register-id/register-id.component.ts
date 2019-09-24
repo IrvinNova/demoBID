@@ -110,7 +110,7 @@ export class RegisterIdComponent implements OnInit {
 
       this.continue();
     }else{
-      this.alert.presentAlert('Error', 'No has insertado ambas imagenes correctamente', 'Ingresa ambos lados de tu identificaciÃ³n para continuar', ['OK']);
+      this.alert.presentAlert('Error', 'No has insertado ambas imagenes correctamente', 'Ingresa ambos lados de tu identificación para continuar', ['OK']);
     }
   }
 

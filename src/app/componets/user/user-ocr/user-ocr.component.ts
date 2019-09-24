@@ -35,6 +35,7 @@ export class UserOcrComponent implements OnInit {
   private same_adress: boolean;
   @ViewChild(LoadingComponent, {static: true}) loading: LoadingComponent;
   private clientData: DataClient = new DataClient();
+  public showedINE: boolean = true;
 
   public countrys: DualData[] = [];
   public states: DualData[] = [];
@@ -61,6 +62,9 @@ export class UserOcrComponent implements OnInit {
     this.clientData = await this.storage.get(environment.dataClient);
     this.person = await this.storage.get(environment.person);
     this.same_adress = await this.storage.get(environment.same_adress);
+    this.data.tipoID = await this.storage.get(environment.id_kind);
+    this.showedINE = this.data.tipoID === 'ine';
+    console.log('TIPO IDENTIFICACION: ', this.data.tipoID);
     // [servicio] esperar datos de ocr
     this.cat_country();
     this.cat_state();
