@@ -70,6 +70,7 @@ export class UserBuroComponent implements OnInit {
           handler: () => {
              this.acepta = '0';
             console.log('Confirm Go map citas');
+            this.navCtrl.navigateForward('/userTerms');
           }
         }
       ]
@@ -83,11 +84,11 @@ export class UserBuroComponent implements OnInit {
         this.validacion();
       } else {
        // navegacion a la siguiente pagina
-       this.navCtrl.navigateRoot('/userDocuments');
+       this.navCtrl.navigateForward('/userTerms');
       }
     } else {
       // navegacio
-      this.navCtrl.navigateRoot('/userDocuments');
+      this.navCtrl.navigateForward('/userTerms');
     }
   }
 
@@ -102,7 +103,7 @@ export class UserBuroComponent implements OnInit {
   async validacion() {
     const alert = await this.alertCtrl.create({
       // tslint:disable-next-line:max-line-length
-      message: '<div></div><br/> <p>Debes ingresar  los últimos cuatro dígitos de tu tarjeta</p>',
+      message: '<p>Debes ingresar  los últimos cuatro dígitos de tu tarjeta</p>',
       buttons: ['OK']
     });
     await alert.present();

@@ -51,7 +51,7 @@ export class UserFingersVerifyComponent implements OnInit {
   }
 
   public back(){
-    this.nav.pop();
+    this.nav.navigateForward('/userMain');
   }
 
   public continuar(): void{

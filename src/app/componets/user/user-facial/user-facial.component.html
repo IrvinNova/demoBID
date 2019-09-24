@@ -21,7 +21,7 @@
       <ion-img class="image" [src]="'data:image/jpeg;base64,' + face"></ion-img>
     </div>
     <div *ngIf="face.length <= 0">
-      <ion-icon class="enrollment-icon" color="secondary" name="phone-portrait" (click)="facialCapture()"></ion-icon>
+      <ion-img class="enrollment-icon" color="secondary" [src]="selfie" (click)="facialCapture()"></ion-img>
     </div>
   </div>
 </ion-content>

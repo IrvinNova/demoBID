@@ -27,11 +27,12 @@ import { UserSignComponent } from './componets/user/user-sign/user-sign.componen
 import { UserFingerSignComponent } from './componets/user/user-finger-sign/user-finger-sign.component';
 import { UserDocsRecordComponent } from './componets/user/user-docs-record/user-docs-record.component';
 import { UserEndComponent } from './componets/user/user-end/user-end.component';
+import { UserPrivacyComponent } from './componets/user/user-privacy/user-privacy.component';
 
 import { TesterComponent } from './componets/test/tester/tester.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '', redirectTo: 'userBuro', pathMatch: 'full' },
   //{ path: '', redirectTo: 'test', pathMatch: 'full' },
   { path: 'main', component: MainComponent, pathMatch: 'full' },
   { path: 'registerMain', component: RegisterMainComponent, pathMatch: 'full' },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'registerEnd', component: RegisterEndComponent, pathMatch: 'full' },
 
   { path: 'userMain', component: UserMainComponent, pathMatch: 'full' },
+  { path: 'userPrivacy', component: UserPrivacyComponent, pathMatch: 'full' },
   { path: 'userFingers', component: UserFingersComponent, pathMatch: 'full' },
   { path: 'userFingersVerify', component: UserFingersVerifyComponent, pathMatch: 'full' },
   { path: 'userId', component: UserIdComponent, pathMatch: 'full' },
@@ -52,8 +54,8 @@ const routes: Routes = [
   { path: 'userINE', component: UserIneComponent, pathMatch: 'full' },
   { path: 'userKyc', component: UserKycComponent, pathMatch: 'full' },
   { path: 'userBuro', component: UserBuroComponent, pathMatch: 'full' },
+  { path: 'userTerms', component: UserTermsComponent, pathMatch: 'full' },
   { path: 'userOtp', component: UserOtpComponent, pathMatch: 'full' },
-  { path: 'UserTerms', component: UserTermsComponent, pathMatch: 'full' },
   { path: 'userDocuments', component: UserDocumentsComponent, pathMatch: 'full' },
   { path: 'userShowDocument', component: UserShowDocumentComponent, pathMatch: 'full' },
   { path: 'userSign', component: UserSignComponent, pathMatch: 'full' },

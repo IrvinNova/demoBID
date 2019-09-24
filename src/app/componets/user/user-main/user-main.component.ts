@@ -22,7 +22,7 @@ export class UserMainComponent implements OnInit {
   }
 
   public continue(): void{
-    this.nav.navigateRoot('/userFingers');
+    this.nav.navigateRoot('/userPrivacy');
   }
 
 }
