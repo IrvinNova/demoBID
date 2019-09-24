@@ -18,8 +18,8 @@ export const environment = {
 
 
   // urls
-  servicesURL: 'http://apidev.buroidentidad.com',
-  // servicesURL: 'http://apiqa.buroidentidad.com',
+  // servicesURL: 'http://apidev.buroidentidad.com',
+  servicesURL: 'http://apiqa.buroidentidad.com',
 
   // codes
   okCode: -9999,

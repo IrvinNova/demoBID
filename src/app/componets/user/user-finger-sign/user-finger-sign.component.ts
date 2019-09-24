@@ -87,7 +87,7 @@ export class UserFingerSignComponent implements OnInit {
         .subscribe( result => {
           console.log('VERISIGN CLIENT  ', result);
           console.log('DataFingers', this.dataFingers);
-          this.storage.save(environment.firmaBio, this.dataFingers['right_index']['content']);
+          this.storage.save(environment.firmaBio, this.dataFingers.fingers.left_index.content);
           this.continue();
         }, error => {
           console.log('VERISIGN CLIENT ERROR  ', error);

@@ -60,8 +60,8 @@ export class Ocr {
             console.log('VIGENCIA: ', this.vigencia);
         }*/
         console.log(JSON.stringify(this));
-        console.log((this.nombre.length >= 3 ) + ' - ' +  ( this.aPaterno.length >= 3 ) + ' - ' +  ( this.aMaterno.length >= 3 ) + ' - ' +  ( this.claveElector.length >= 3 ) + ' - ' +  ( this.validCurp() ) + ' - ' +  ( this.validRFC() ) + ' - ' +  ( this.ocr.length >= 3));
-        return this.nombre.length >= 3 && this.aPaterno.length >= 3 && this.aMaterno.length >= 3 && this.claveElector.length >= 3 && this.validCurp() && this.validRFC() && this.ocr.length >= 3;
+        console.log((this.nombre.length >= 3 ) + ' - ' +  ( this.aPaterno.length >= 3 ) + ' - ' +  ( this.aMaterno.length >= 3 ) +  ' - ' +  ( this.validCurp() ) + ' - ' +  ( this.validRFC() ) + ' - ' +  ( this.ocr.length >= 3));
+        return this.nombre.length >= 3 && this.aPaterno.length >= 3 && this.aMaterno.length >= 3 && this.validCurp() && this.validRFC() && this.ocr.length >= 3;
     }
 
     public validCurp(): boolean{
