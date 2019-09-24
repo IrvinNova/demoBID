@@ -195,4 +195,9 @@ export class UserBuroComponent implements OnInit {
       this.fill_p3_n = 'outline';
     }
   }
+
+  back() {
+    this.navCtrl.pop();
+  }
+
 }

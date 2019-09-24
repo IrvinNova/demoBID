@@ -3,7 +3,7 @@ export const environment = {
   debug: true,
 
   // credentials
-  user: 'fbe',
+  user: 'demo',
   password: 'password',
   encoded: 'dXNlcmFwcDpwYXNzd29yZA==',
 
@@ -23,7 +23,7 @@ export const environment = {
 
   // codes
   okCode: -9999,
-  appPermission: 9,
+  appPermission: 1,
   mexico_id: 127,
   cdmx_id: 9,
   map_key: 'AIzaSyDVbHKUNntc-jWtK5yfU69Ve0zgxRyLjAw',
@@ -55,7 +55,7 @@ export const environment = {
   curp_validate: ':9426/bid/rest/v1/renapo/napi/curp',
   otpGenerate: ':9430/bid/rest/v1/notification/otp/generate',
   otpValidate: ':9430/bid/rest/v1/notification/otp/validate',
-  generateDoc: ':9414/bid/rest/v1/dxn/contracts',
+  generateDoc: ':9424/bid/rest/v1/contracts/getContract',
   fingerVerify: ':9420/bid/finger/verify',
   direction_serv: 'https://us-central1-bid-general.cloudfunctions.net/DireccionCompleta',
   
@@ -90,5 +90,6 @@ export const environment = {
   email: 'email',
   pdfDoc: 'pdfDoc',
   firmaAuth: 'firmaAuth',
+  firmaBio: 'firmaBio',
   left_valid: 'left_valid'
 };

@@ -5,6 +5,7 @@ import { AlertService } from '../../../bid/services/alert.service';
 import { StorageService } from '../../../bid/services/storage.service';
 import { LoadingComponent } from '../../../bid/components/loading/loading.component';
 import { ReadDocument } from '../../../services/readDocument/readDocument.service';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @Component({
   selector: 'app-user-show-document',
@@ -30,6 +31,7 @@ export class UserShowDocumentComponent implements OnInit {
 
   async ngOnInit() {
     this.pdf = await this.storage.get(environment.pdfDoc);
+    // this.pdf = "";
     console.log('PDF', this.pdf);
   }
 

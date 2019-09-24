@@ -45,7 +45,7 @@ export class UserKycComponent implements OnInit {
   public continuar(): void{
     console.log('Controls', JSON.stringify(this.controls));
     this.storage.save(environment.kyc, this.controls);
-    this.nav.navigateForward('/userOtp');
+    this.nav.navigateForward('/userBuro');
   }
 
 }

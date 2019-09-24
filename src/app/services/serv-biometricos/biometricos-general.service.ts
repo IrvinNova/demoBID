@@ -165,6 +165,8 @@ export class BiometricosGeneralService {
 
   veriSign(data, token, operationId, userId) {
 
+    console.log('finger data sign', data);
+
     const headers = new HttpHeaders({
         'Authorization': 'Bearer ' + token,
         'content-type': 'application/json'

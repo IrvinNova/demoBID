@@ -14,7 +14,9 @@ import { ReadDocument } from '../../../services/readDocument/readDocument.servic
 })
 export class UserDocumentsComponent implements OnInit {
 
+  public logo: string = environment.logo;
   public logout: string = environment.logo_blanco;
+
   documentCode: string;
   token: any;
   pdf: any;
@@ -60,7 +62,7 @@ export class UserDocumentsComponent implements OnInit {
   }
 
   public firma_autografa() {
-    this.nav.navigateForward('/userSign');
+    this.nav.navigateRoot('/userSign');
   }
 
   pdfObj(data) {

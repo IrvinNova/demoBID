@@ -66,7 +66,7 @@ export class UserEnrollComponent implements OnInit {
     this.data.data = hand;
     this.data.enrollLeft = true;
     this.data.leftData = true;
-    this.continue();
+    this.enroll();
   }
 
   public right(hand: Hands) {
@@ -74,7 +74,7 @@ export class UserEnrollComponent implements OnInit {
     this.data.data = hand;
     this.data.enrollRight = true;
     this.data.rightData = true;
-    this.continue();
+    this.enroll();
   }
   
   public both(hand: Hands){
@@ -84,12 +84,13 @@ export class UserEnrollComponent implements OnInit {
     this.data.enrollLeft = true;
     this.data.rightData = true;
     this.data.leftData = true;
-    this.continue();
+    this.enroll();
   }
 
   public enroll() {
     this.loading.show();
     this.storage.save(environment.hand, this.data.data);
+    console.log('Finger antes de Enroll', this.data.data);
     // Servicio de enrolamiento de huellas del cliente
     this.biometric_serv.enrollBiometric(this.data.data, this.token, this.operation.operationId, this.operation.systemCode, this.person.id, '', 2)
     .subscribe( result => {

@@ -43,7 +43,7 @@
               { 
                 "glob": "pdf.worker.js",
                 "input": "node_modules/ngx-extended-pdf-viewer/ngx-extended-pdf-viewer/assets", 
-                "output": "/assets/" 
+                "output": "/" 
               }
             ],
             "styles": [
@@ -145,7 +145,7 @@
               { 
                 "glob": "pdf.worker.js",
                 "input": "node_modules/ngx-extended-pdf-viewer/ngx-extended-pdf-viewer/assets", 
-                "output": "/assets/" 
+                "output": "/" 
               }
             ]
           },
