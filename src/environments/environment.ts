@@ -23,7 +23,7 @@ export const environment = {
 
   // codes
   okCode: -9999,
-  appPermission: 1,
+  appPermission: 9,
   mexico_id: 127,
   cdmx_id: 9,
   map_key: 'AIzaSyDVbHKUNntc-jWtK5yfU69Ve0zgxRyLjAw',
@@ -58,6 +58,7 @@ export const environment = {
   generateDoc: ':9424/bid/rest/v1/contracts/getContract',
   fingerVerify: ':9420/bid/finger/verify',
   direction_serv: 'https://us-central1-bid-general.cloudfunctions.net/DireccionCompleta',
+  face_compare: ':9423/bid/rest/v1/facial/recognition',
   
   // storage
   token: 'auth_token',
@@ -91,5 +92,7 @@ export const environment = {
   pdfDoc: 'pdfDoc',
   firmaAuth: 'firmaAuth',
   firmaBio: 'firmaBio',
-  left_valid: 'left_valid'
+  left_valid: 'left_valid',
+  front_id: 'front_id_image',
+  id_kind: 'id_kind_image'
 };
