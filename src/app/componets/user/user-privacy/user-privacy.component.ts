@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
+import { ModalComponent } from 'src/app/bid/components/modal/modal.component';
+
 
 @Component({
   selector: 'app-user-privacy',

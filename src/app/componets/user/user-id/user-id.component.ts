@@ -35,6 +35,8 @@ export class UserIdComponent implements OnInit {
   private operation: OperationsObj;
   private dataClient: DataClient;
   private person: Person;
+
+  public ext: boolean = false;
   @ViewChild(LoadingComponent, {static: true}) loading: LoadingComponent;
   @ViewChild(CameraComponent, {static: true}) camera: CameraComponent;
 
@@ -170,4 +172,11 @@ export class UserIdComponent implements OnInit {
     this.alert.presentAlert('Error', 'Error de camara', $event, ['OK']);
   }
 
+  public cambio(){
+    if(this.ext && this.tipoID === 'ine'){
+      this.tipoID = 'pass';
+    }else if(this.tipoID === 'fm2'){
+      this.tipoID = 'pass';
+    }
+  }
 }

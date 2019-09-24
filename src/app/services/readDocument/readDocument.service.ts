@@ -134,7 +134,7 @@ export class ReadDocument {
     generaDoc (code, token) {
 
         console.log('Codigo Doc', code);
-        const docType = "1";
+        const docType = "2";
         const firmaAuth = "";
         const firmaBio = "";
         this.aceptaNo = "";
@@ -145,7 +145,7 @@ export class ReadDocument {
             'Content-Type': 'application/json'
         });
 
-        return this.http.post(environment.servicesURL + environment.generateDoc, JSON.stringify(this.generarJsonDoc(code, docType, firmaAuth, firmaBio)), {headers});
+        return this.http.post(environment.servicesURL + environment.generateDoc, JSON.stringify(this.generarJsonDocSF(code, docType, firmaAuth, firmaBio)), {headers});
 
     }
 
@@ -200,6 +200,50 @@ export class ReadDocument {
       
     }
 
+    generarJsonDocSF (code, docType, firmaAuth, firmaBio) {
+
+        const jsonDoc = {
+            operationId: this.operationId.operationId,
+            data: {
+                ducmentType: docType,
+                codeContract: "AMIGO",
+                campos: [
+                    {
+                        nombre:"USU",
+                        valor: this.data_client.nombre + ' ' + this.data_client.aPaterno + ' ' + this.data_client.aMaterno
+                    },
+                    {
+                        nombre:"CURP",
+                        valor: this.data_client.curp
+                    },
+                    {
+                        nombre:"DOM",
+                        valor: this.data_client.address
+                    },
+                    {
+                        nombre:"APRI",
+                        valor: "X"
+                    },
+                    {
+                        nombre:"CCRE",
+                        valor: "X"
+                    },
+                    {
+                        nombre:"RLLA",
+                        valor: "X"
+                    },
+                    {
+                        nombre: "FIRM",
+                        valor: this.data_client.nombre + ' ' + this.data_client.aPaterno + ' ' + this.data_client.aMaterno
+                    }
+                ]
+            }
+        }
+    
+        console.log('JsonDoc: ', JSON.stringify(jsonDoc));
+        return jsonDoc;
+    }
+
     generarJsonDoc (code, docType, firmaAuth, firmaBio) {
 
         const jsonDoc = {
@@ -234,6 +278,10 @@ export class ReadDocument {
                     },
                     {
                         nombre: "FIRM",
+                        valor: this.data_client.nombre + ' ' + this.data_client.aPaterno + ' ' + this.data_client.aMaterno
+                    },
+                    {
+                        nombre: "imgFirma",
                         valor: firmaBio
                     }
                 ]

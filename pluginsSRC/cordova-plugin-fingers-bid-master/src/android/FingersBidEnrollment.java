@@ -554,11 +554,11 @@ public class FingersBidEnrollment extends CordovaPlugin {
 
             return false;
         }
-        if(quality > 4 && !finger.equals("index")){
+        /*if(quality > 4 && !finger.equals("index")){
             Log.e("Falla Verificacion", "prueba");
 
             return false;
-        }
+        }*/
         return true;
     }
 

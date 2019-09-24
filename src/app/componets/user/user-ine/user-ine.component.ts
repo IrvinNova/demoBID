@@ -28,6 +28,7 @@ export class UserIneComponent implements OnInit {
   private token: string;
   private login: LoginModel;
   private operation: OperationsObj;
+  private enroll: boolean;
   private person: any;
   private mapaFingers: any;
   private fingers: Hands;
@@ -59,6 +60,7 @@ export class UserIneComponent implements OnInit {
     this.dataOcr = await this.storage.get(environment.dataOcr);
     this.clientData = await this.storage.get(environment.dataClient);
     this.face = await this.storage.get(environment.face_storage);
+    this.enroll = await this.storage.get(environment.enroll);
     this.frontID = await this.storage.get(environment.front_id);
 
     this.fingers = await this.storage.get(environment.hand);
@@ -128,28 +130,27 @@ export class UserIneComponent implements OnInit {
   }
 
   public continuar(){
-    this.loading.show();
-    this.biometric_serv.enrollBiometric(this.fingers, this.token, this.operation.operationId, this.operation.systemCode, this.person.id, '', 2)
-    .subscribe( result => {
-      console.log('ENROLL CLIENT  ', result);
-      this.loading.hide();
-
-      if(result['code'] === -9999) {
-        this.face_enroll();
-      } else {
-        this.alert.presentAlert('¡Ocurrio un problema!', 'Por favor vuelva a capturar sus huellas para intentar guardarlas nuevamente', '', ['Entiendo']);
-      }
-      
-    }, error => {
-      console.log('ENROLL CLIENT ERROR  ', error);
-      this.loading.hide();
-      this.alert.presentAlertSimpleConfirm('¡Ocurrio un problema!', 'Esta ocurrioendo un problema de conexion', '', 'Reitentar', ()=> { this.continuar()  });
-    });
+      this.loading.show();
+      this.biometric_serv.enrollBiometric(this.fingers, this.token, this.operation.operationId, this.operation.systemCode, this.person.id, '', 2)
+      .subscribe( result => {
+        console.log('ENROLL CLIENT  ', result);
+        if(result['code'] === -9999) {
+          this.face_enroll();
+        } else {
+          this.alert.presentAlert('¡Ocurrio un problema!', 'Por favor vuelva a capturar sus huellas para intentar guardarlas nuevamente', '', ['Entiendo']);
+        }
+        
+      }, error => {
+        console.log('ENROLL CLIENT ERROR  ', error);
+        this.loading.hide();
+        this.alert.presentAlertSimpleConfirm('¡Ocurrio un problema!', 'Esta ocurrioendo un problema de conexion', '', 'Reitentar', ()=> { this.continuar()  });
+      });
   }
 
   private face_enroll(){
     this.biometric_serv.faceEnroll(this.face, this.token, this.operation.systemCode, this.operation.operationId).subscribe((data)=> {
       console.log('ENROLAMIENTO FACIAL: ', JSON.stringify(data));
+      this.loading.hide();
       this.continue();
     }, error => {
       this.alert.presentAlertSimpleConfirm('Error', 'Ocurrio un error al concluir tu proceso, intentalo de nuevo', '', 'Reintentar', () => {this.face_enroll();});

@@ -2,10 +2,10 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="end">
       <ion-button (click)="dismiss()">
-        <ion-icon slot="icon-only" color="secondary" name="close"></ion-icon>
+        <ion-icon slot="icon-only" color="tertiary" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title color="secondary">
+    <ion-title color="tertiary">
       <!--<img class="header-logo" src="../assets/logo_dxn.svg">-->
       {{ name }}
     </ion-title>
@@ -14,7 +14,7 @@
 
 <ion-content>
   <div class="ion-padding">
-    <p class="ion-text-justify">{{ content }}</p>
+    <p class="ion-text-justify" [innerHTML]=content></p>
     <ion-button expand="block" color="primary" *ngFor="let action of actions" (click)="action.action(); dismiss()">
       {{ action.name }}
     </ion-button>

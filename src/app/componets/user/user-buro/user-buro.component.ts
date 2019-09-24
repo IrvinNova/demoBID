@@ -69,8 +69,7 @@ export class UserBuroComponent implements OnInit {
           text: 'NO, ACEPTO',
           handler: () => {
              this.acepta = '0';
-            console.log('Confirm Go map citas');
-            this.navCtrl.navigateForward('/userTerms');
+            this.navCtrl.navigateForward('/userDocuments');
           }
         }
       ]
@@ -84,11 +83,11 @@ export class UserBuroComponent implements OnInit {
         this.validacion();
       } else {
        // navegacion a la siguiente pagina
-       this.navCtrl.navigateForward('/userTerms');
+       this.navCtrl.navigateForward('/userDocuments');
       }
     } else {
       // navegacio
-      this.navCtrl.navigateForward('/userTerms');
+      this.navCtrl.navigateForward('/userDocuments');
     }
   }
 

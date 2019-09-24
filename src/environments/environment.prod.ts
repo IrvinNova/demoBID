@@ -18,8 +18,8 @@ export const environment = {
 
 
   // urls
-  servicesURL: 'http://apidev.buroidentidad.com',
-  // servicesURL: 'http://apiqa.buroidentidad.com',
+  // servicesURL: 'http://apidev.buroidentidad.com',
+  servicesURL: 'http://apiqa.buroidentidad.com',
 
   // codes
   okCode: -9999,
@@ -57,6 +57,7 @@ export const environment = {
   otpValidate: ':9430/bid/rest/v1/notification/otp/validate',
   generateDoc: ':9424/bid/rest/v1/contracts/getContract',
   fingerVerify: ':9420/bid/finger/verify',
+  face_compare: '9423/bid/rest/v1/facial/recognition',
   direction_serv: 'https://us-central1-bid-general.cloudfunctions.net/DireccionCompleta',
   
   // storage
@@ -91,5 +92,11 @@ export const environment = {
   pdfDoc: 'pdfDoc',
   firmaAuth: 'firmaAuth',
   firmaBio: 'firmaBio',
-  left_valid: 'left_valid'
+  front_id: 'front_id_image',
+  id_kind: 'id_kind_image',
+  enroll: 'enroll',
+  left_valid: 'left_valid',
+
+  pol_title: 'Aviso de Privacidad',
+  pol_cont: '<p><b>Constancia de puesta a disposición del Aviso de Privacidad</b></p><p><b>(Confidencialidad y Privacidad de la información y datos personales)</b></p>  <p>"BURÓ IDENTIDAD" S.A. DE C.V. ("BID"), con domicilio en calle Aristóteles, número 210, Colonia Polanco, Código   Postal 11150, Ciudad de México, México, utilizará sus datos personales recabados para poder iniciar el proceso de análisis de viabilidad crediticia y financiera, para lo cual   es necesario que nos proporcione ciertos datos personales, financieros y patrimoniales que pudieran ser considerados datos sensibles, por lo que, por este medio   OTORGO MI CONSENTIMIENTO a "BURÓ DE IDENTIDAD", S.A. de C.V., así como sus subsidiarias, afiliadas, controladora y demás empresas   relacionadas (en lo sucesivo “BID”) para realizar el tratamiento de los datos personales y datos personales sensibles proporcionados, conforme a los términos   establecidos en el "Aviso de Privacidad Integral" ("API"), el cual se me ha puesto a disposición en cuanto a su contenido íntegro, indicándome que puede ser consultado a   través de la página de internet www.bid.com.mx. Igualmente, otorgo mi consentimiento expreso a "BID" para que los datos personales y datos personales   sensibles proporcionados, puedan ser compartidos para el único efecto de la realización de procedimientos de seguimiento y administración del producto o servicio   solicitado, consultas de historial crediticio, autenticación de identidad, procesos de verificación por entidades externas y autoridades y registros públicos entre otras   autoridades, para integrar debidamente la presente solicitud. Para mayor información acerca del tratamiento y de los derechos que pueden hacer valer, puede accesar al   "API" a través de la página de Internet antes referida o contactar al Departamento Especializado de Datos Personales al correo electrónico siguiente:   biddatospersonales@buroidentidad.com, en donde podrán atender sus solicitudes y ejercer sus derechos ARCO.   </p>'
 };

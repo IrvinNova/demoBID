@@ -64,7 +64,7 @@ export class RegisterOcrComponent implements OnInit {
     if(this.data.allData()) {
       // [servicio] actualizacion de datos de person
       this.storage.save(environment.dataOcr, this.data);
-      this.serv_update.updatePersona(this.data, this.token, this.login.person)
+      this.serv_update.updatePersona(this.data, this.token, this.login.person, this.operation)
         .subscribe(data => {
           console.log('SAVE PERSON ', data);
           this.loading.hide();

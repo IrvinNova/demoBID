@@ -189,4 +189,27 @@ export class OcrService {
     console.log('REQUES CURP RENAPO', JSON.stringify(request));
     return request;
   }
+
+  public completeAdress(direccion: string){
+    this.http.post(environment.direction_serv, {direccion: direccion}, {}).subscribe( (dats)=>{
+      console.log('GOOGLE: ' + JSON.stringify(dats));
+      if(dats['status'] === 'OK'){
+        this.resulCD.numExt = dats['numero'];
+        this.resulCD.calle = dats['calle'];
+        this.resulCD.coloniaS = dats['colonia'];
+        this.resulCD.ciudadS = dats['colonia'];
+        this.resulCD.estadoS = dats['estado'];
+        this.resulCD.paisS = dats['pais'];
+        this.resulCD.cp = dats['cp'];
+        this.finishCD = true;
+      }else{
+        this.resulCD.paisS = 'MEXICO';
+        this.finishCD = true;
+      }
+    }, error => {
+      this.resulCD.paisS = 'MEXICO';
+      this.finishCD = true;
+    });
+  }
+
 }

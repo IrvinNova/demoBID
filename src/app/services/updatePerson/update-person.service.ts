@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { Ocr } from '../../classes/model/ocr';
 import { Adress } from '../../classes/model/adress';
 import { asLiteral } from '@angular/compiler/src/render3/view/util';
+import { OperationsObj } from 'src/app/classes/model/operations-obj';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,20 @@ export class UpdatePersonService {
 
   constructor(private http: HttpClient) { }
 
-  updatePersona(dataPerson: Ocr, token: any, personId: any) {
+  updatePersona(dataPerson: Ocr, token: any, personId: any, operation: OperationsObj) {
 
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + token,
       'Content-Type': 'application/json'
     });
-    console.log(JSON.stringify(this.createJUpdatePersona(dataPerson, personId)));
-    return this.http.post(environment.servicesURL + environment.updatePerson, JSON.stringify(this.createJUpdatePersona(dataPerson, personId)), {headers});
+    console.log(JSON.stringify(this.createJUpdatePersona(dataPerson, personId, operation.operationId)));
+    return this.http.post(environment.servicesURL + environment.updatePerson, JSON.stringify(this.createJUpdatePersona(dataPerson, personId, operation.operationId)), {headers});
 
   }
 
-  createJUpdatePersona(dataPerson: Ocr, personId: any) {
+  createJUpdatePersona(dataPerson: Ocr, personId: any, operation: any) {
     const request = {
+        operationId: operation,
         metadata: {
             userId: 1
         },

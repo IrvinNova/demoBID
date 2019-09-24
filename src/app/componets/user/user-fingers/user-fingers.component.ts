@@ -34,6 +34,7 @@ export class UserFingersComponent implements OnInit {
   private newClient: boolean;
   private person: Person = new Person();
   private loginM: LoginModel;
+  private enroll: boolean;
 
   constructor(private nav: NavController,
               private alert: AlertService,
@@ -52,7 +53,8 @@ export class UserFingersComponent implements OnInit {
     this.agente = await this.storage.get(environment.session);
     this.storage.save(environment.agente, this.agente);
     this.loginM = await this.storage.get(environment.session);
-    await this.generate_opID();
+    // await this.generate_opID();
+    this.enroll = true;
     this.loading.hide();
   }
 
@@ -106,6 +108,12 @@ export class UserFingersComponent implements OnInit {
           if(result['code'] == -9999) {
             // Si encontrada
             this.clientData.personId = result['data']['person']['id'];
+            this.clientData.operationId = result['data']['operationId'];
+            this.operation.operationId = result['data']['operationId'];
+            this.operation.systemCode = result['data']['person']['code'];
+            this.enroll = false;
+            this.storage.save(environment.enroll, this.enroll);
+            this.storage.save(environment.operation, this.operation);
             this.loading.hide();
             this.finalizar();
           } else {
@@ -113,7 +121,7 @@ export class UserFingersComponent implements OnInit {
             this.clientData.newClient = true;
             this.newClient = true;
             this.storage.save(environment.hand, this.dataFingers.fingers);
-            this.createPerson();
+            this.generate_opID();
           }
         }, error => {
           console.log('IDENTIFY CLIENT ERROR  ', error);
@@ -161,6 +169,7 @@ export class UserFingersComponent implements OnInit {
                   if(result['code'] == -9999) {
                     this.operation = result['data'];
                     this.storage.save(environment.operation, this.operation);
+                    this.createPerson();
                   } else {
                     this.alert.alertaNoDismiss('¡Ocurrio un problema!', 'Se presento un problema al querer crear su registro, por favor para poder avanzar de clic en Reitentar', 'Reitentar', ()=>{ this.generate_opID() });
                   }
@@ -182,7 +191,7 @@ export class UserFingersComponent implements OnInit {
 
   private finalizar(){
     this.alert.presentAlert('Usuario encontrado', 'Se encontró el usuario', 'El usuario fue encontrado, por lo tanto, no necesita de enrolarse nuevamente', ['OK']);
-    this.nav.navigateRoot('/userFingersVerify');
+    this.nav.navigateRoot('/userMain');
   }
 
 }

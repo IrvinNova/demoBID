@@ -56,15 +56,10 @@ export class UserDocsRecordComponent implements OnInit {
     this.readDoc.generaDocFirma(this.documentCode, this.token, this.firmaAuth, this.firmaBio, this.operation.operationId, this.agente.user)
     .subscribe(result =>{
       console.log('Generar Doc Result', result);
-      this.readDoc.saveDocuments(result['data'], this.documentCode, this.operation, this.agente.user, this.token).subscribe(result2 => {
-        console.log('SaveDoc Result', result2);
-        this.pdf = 'data:application/pdf;base64,' + result['data'];
-        this.storage.save(environment.pdfDoc, this.pdf);
-        this.loading.hide();
-        this.nav.navigateForward('/userShowDocument');
-      }, error2 =>{
-        console.log('SaveDoc Error', error2);
-      });
+      this.pdf = 'data:application/pdf;base64,' + result['data'];
+      this.storage.save(environment.pdfDoc, this.pdf);
+      this.loading.hide();
+      this.nav.navigateForward('/userShowDocument');
     }, error =>{
       console.log('Generar Doc Error', error);
     });

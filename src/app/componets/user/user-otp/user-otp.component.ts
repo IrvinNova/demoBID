@@ -77,7 +77,7 @@ export class UserOtpComponent implements OnInit {
               console.log('Validate Result', result);
               if (result['code'] === -9999){
                 this.loading.hide();
-                this.nav.navigateForward('/userDocuments');
+                this.nav.navigateForward('/userSign');
               } else {
                 if (result['code'] === -9805){
                   this.loading.hide();

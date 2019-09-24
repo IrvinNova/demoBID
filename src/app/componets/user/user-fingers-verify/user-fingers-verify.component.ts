@@ -8,6 +8,7 @@ import { LoadingComponent } from '../../../bid/components/loading/loading.compon
 import { Person } from 'src/app/classes/model/person';
 import { UpdatePersonService } from 'src/app/services/updatePerson/update-person.service';
 import { LoginModel } from 'src/app/classes/model/login-model';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 @Component({
   selector: 'app-user-fingers-verify',
@@ -26,11 +27,13 @@ export class UserFingersVerifyComponent implements OnInit {
   private cliente: any;
   private person: Person;
   public data: UserFingersVerify;
+  public enroll: boolean;
   @ViewChild(LoadingComponent, {static: true}) loading: LoadingComponent;
 
   constructor(private nav: NavController,
     private alert: AlertService,
     private storage: StorageService,
+    private keyboard: Keyboard,
     private serv_person: UpdatePersonService) {
     this.data = new UserFingersVerify();
     this.loading = new LoadingComponent();
@@ -43,6 +46,7 @@ export class UserFingersVerifyComponent implements OnInit {
     this.operation = await this.storage.get(environment.operation);
     this.cliente = await this.storage.get(environment.client);
     this.person = await this.storage.get(environment.person);
+    this.enroll = await this.storage.get(environment.enroll);
     this.data.email = this.person.email.length < 10 ? '': this.person.email ;
     this.data.numero = null;
     // si el cliente es nuevo
@@ -107,6 +111,7 @@ export class UserFingersVerifyComponent implements OnInit {
   }
 
   private nextPage(){
+    this.keyboard.hide();
     this.nav.navigateForward('/userId');
   }
 

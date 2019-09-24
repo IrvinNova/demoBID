@@ -198,171 +198,171 @@ export class EnrollmentComponent implements OnInit {
               }
             }
             console.log('FINGER CONFIG LIST:: ', params.toString());
-            if(complete_left || complete_right){
-              if(complete_left && complete_right){
-                FingersBidEnrollment.initialize(1, (resultBiometric) => {
-                  let validContent = true;
-                  if(this.control.left_index.active){
-                    this.control.left_index.content = JSON.parse(resultBiometric).leftindex;
-                    validContent = validContent && this.control.left_index.content.length > 1;
-                  }
-                  if(this.control.left_middle.active){
-                    this.control.left_middle.content = JSON.parse(resultBiometric).leftmiddle;
-                    validContent = validContent && this.control.left_middle.content.length > 1;
-                  }
-                  if(this.control.left_ring.active){
-                    this.control.left_ring.content = JSON.parse(resultBiometric).leftring;
-                    validContent = validContent && this.control.left_ring.content.length > 1;
-                  }
-                  if(this.control.left_pinky.active){
-                    this.control.left_pinky.content = JSON.parse(resultBiometric).leftlittle;
-                    validContent = validContent && this.control.left_pinky.content.length > 1;
-                  }
+            // if(complete_left || complete_right){
+            //   if(complete_left && complete_right){
+            //     FingersBidEnrollment.initialize(1, (resultBiometric) => {
+            //       let validContent = true;
+            //       if(this.control.left_index.active){
+            //         this.control.left_index.content = JSON.parse(resultBiometric).leftindex;
+            //         validContent = validContent && this.control.left_index.content.length > 1;
+            //       }
+            //       if(this.control.left_middle.active){
+            //         this.control.left_middle.content = JSON.parse(resultBiometric).leftmiddle;
+            //         validContent = validContent && this.control.left_middle.content.length > 1;
+            //       }
+            //       if(this.control.left_ring.active){
+            //         this.control.left_ring.content = JSON.parse(resultBiometric).leftring;
+            //         validContent = validContent && this.control.left_ring.content.length > 1;
+            //       }
+            //       if(this.control.left_pinky.active){
+            //         this.control.left_pinky.content = JSON.parse(resultBiometric).leftlittle;
+            //         validContent = validContent && this.control.left_pinky.content.length > 1;
+            //       }
     
-                  if(this.control.right_index.active){
-                    this.control.right_index.content = JSON.parse(resultBiometric).rightmiddle;
-                    validContent = validContent && this.control.right_index.content.length > 1;
-                  }
-                  if(this.control.right_middle.active){
-                    this.control.right_middle.content = JSON.parse(resultBiometric).rightmiddle;
-                    validContent = validContent && this.control.right_middle.content.length > 1;
-                  }
-                  if(this.control.right_ring.active){
-                    this.control.right_ring.content = JSON.parse(resultBiometric).rightring;
-                    validContent = validContent && this.control.right_ring.content.length > 1;
-                  }
-                  if(this.control.right_pinky.active){
-                    this.control.right_pinky.content = JSON.parse(resultBiometric).rightlittle;
-                    validContent = validContent && this.control.right_pinky.content.length > 1;
-                  }
+            //       if(this.control.right_index.active){
+            //         this.control.right_index.content = JSON.parse(resultBiometric).rightmiddle;
+            //         validContent = validContent && this.control.right_index.content.length > 1;
+            //       }
+            //       if(this.control.right_middle.active){
+            //         this.control.right_middle.content = JSON.parse(resultBiometric).rightmiddle;
+            //         validContent = validContent && this.control.right_middle.content.length > 1;
+            //       }
+            //       if(this.control.right_ring.active){
+            //         this.control.right_ring.content = JSON.parse(resultBiometric).rightring;
+            //         validContent = validContent && this.control.right_ring.content.length > 1;
+            //       }
+            //       if(this.control.right_pinky.active){
+            //         this.control.right_pinky.content = JSON.parse(resultBiometric).rightlittle;
+            //         validContent = validContent && this.control.right_pinky.content.length > 1;
+            //       }
     
-                  if(this.validContent){
-                    this.showMark();
-                  }else{
-                    this.hideMark();
-                  }
+            //       if(this.validContent){
+            //         this.showMark();
+            //       }else{
+            //         this.hideMark();
+            //       }
                   
-                  if(only_right && only_left){
-                    this.onBoth.emit(this.control);
-                  }else if(only_right){
-                    this.onRight.emit(this.control);
-                  }else if(only_left){
-                    this.onLeft.emit(this.control);
-                  }
-                }, error_initialize => {
-                  console.log('FINGERS CONFIG ERROR:: ' + error_initialize);
-                  this.alert.presentAlert('Error', '¡Ocurrio un problema!', 'Vuelva a capturar sus huellas por favor', ['Entiendo']);
-                });
-              }else if(complete_left){
-                FingersBidEnrollment.initializeVerify(this.userId, 'left', (resultBiometric) => {
-                  let validContent = true;
-                  if(this.control.left_index.active){
-                    this.control.left_index.content = JSON.parse(resultBiometric).leftindex;
-                    validContent = validContent && this.control.left_index.content.length > 1;
-                  }
-                  if(this.control.left_middle.active){
-                    this.control.left_middle.content = JSON.parse(resultBiometric).leftmiddle;
-                    validContent = validContent && this.control.left_middle.content.length > 1;
-                  }
-                  if(this.control.left_ring.active){
-                    this.control.left_ring.content = JSON.parse(resultBiometric).leftring;
-                    validContent = validContent && this.control.left_ring.content.length > 1;
-                  }
-                  if(this.control.left_pinky.active){
-                    this.control.left_pinky.content = JSON.parse(resultBiometric).leftlittle;
-                    validContent = validContent && this.control.left_pinky.content.length > 1;
-                  }
+            //       if(only_right && only_left){
+            //         this.onBoth.emit(this.control);
+            //       }else if(only_right){
+            //         this.onRight.emit(this.control);
+            //       }else if(only_left){
+            //         this.onLeft.emit(this.control);
+            //       }
+            //     }, error_initialize => {
+            //       console.log('FINGERS CONFIG ERROR:: ' + error_initialize);
+            //       this.alert.presentAlert('Error', '¡Ocurrio un problema!', 'Vuelva a capturar sus huellas por favor', ['Entiendo']);
+            //     });
+            //   }else if(complete_left){
+            //     FingersBidEnrollment.initializeVerify(this.userId, 'left', (resultBiometric) => {
+            //       let validContent = true;
+            //       if(this.control.left_index.active){
+            //         this.control.left_index.content = JSON.parse(resultBiometric).leftindex;
+            //         validContent = validContent && this.control.left_index.content.length > 1;
+            //       }
+            //       if(this.control.left_middle.active){
+            //         this.control.left_middle.content = JSON.parse(resultBiometric).leftmiddle;
+            //         validContent = validContent && this.control.left_middle.content.length > 1;
+            //       }
+            //       if(this.control.left_ring.active){
+            //         this.control.left_ring.content = JSON.parse(resultBiometric).leftring;
+            //         validContent = validContent && this.control.left_ring.content.length > 1;
+            //       }
+            //       if(this.control.left_pinky.active){
+            //         this.control.left_pinky.content = JSON.parse(resultBiometric).leftlittle;
+            //         validContent = validContent && this.control.left_pinky.content.length > 1;
+            //       }
     
-                  if(this.control.right_index.active){
-                    this.control.right_index.content = JSON.parse(resultBiometric).rightmiddle;
-                    validContent = validContent && this.control.right_index.content.length > 1;
-                  }
-                  if(this.control.right_middle.active){
-                    this.control.right_middle.content = JSON.parse(resultBiometric).rightmiddle;
-                    validContent = validContent && this.control.right_middle.content.length > 1;
-                  }
-                  if(this.control.right_ring.active){
-                    this.control.right_ring.content = JSON.parse(resultBiometric).rightring;
-                    validContent = validContent && this.control.right_ring.content.length > 1;
-                  }
-                  if(this.control.right_pinky.active){
-                    this.control.right_pinky.content = JSON.parse(resultBiometric).rightlittle;
-                    validContent = validContent && this.control.right_pinky.content.length > 1;
-                  }
+            //       if(this.control.right_index.active){
+            //         this.control.right_index.content = JSON.parse(resultBiometric).rightmiddle;
+            //         validContent = validContent && this.control.right_index.content.length > 1;
+            //       }
+            //       if(this.control.right_middle.active){
+            //         this.control.right_middle.content = JSON.parse(resultBiometric).rightmiddle;
+            //         validContent = validContent && this.control.right_middle.content.length > 1;
+            //       }
+            //       if(this.control.right_ring.active){
+            //         this.control.right_ring.content = JSON.parse(resultBiometric).rightring;
+            //         validContent = validContent && this.control.right_ring.content.length > 1;
+            //       }
+            //       if(this.control.right_pinky.active){
+            //         this.control.right_pinky.content = JSON.parse(resultBiometric).rightlittle;
+            //         validContent = validContent && this.control.right_pinky.content.length > 1;
+            //       }
     
-                  if(this.validContent){
-                    this.showMark();
-                  }else{
-                    this.hideMark();
-                  }
+            //       if(this.validContent){
+            //         this.showMark();
+            //       }else{
+            //         this.hideMark();
+            //       }
                   
-                  if(only_right && only_left){
-                    this.onBoth.emit(this.control);
-                  }else if(only_right){
-                    this.onRight.emit(this.control);
-                  }else if(only_left){
-                    this.onLeft.emit(this.control);
-                  }
-                }, error_initialize => {
-                  console.log('FINGERS CONFIG ERROR:: ' + error_initialize);
-                  this.alert.presentAlert('Error', '¡Ocurrio un problema!', 'Vuelva a capturar sus huellas por favor', ['Entiendo']);
-                });
-              } else{
-                FingersBidEnrollment.initializeVerify(this.userId, 'right', (resultBiometric) => {
-                  let validContent = true;
-                  if(this.control.left_index.active){
-                    this.control.left_index.content = JSON.parse(resultBiometric).leftindex;
-                    validContent = validContent && this.control.left_index.content.length > 1;
-                  }
-                  if(this.control.left_middle.active){
-                    this.control.left_middle.content = JSON.parse(resultBiometric).leftmiddle;
-                    validContent = validContent && this.control.left_middle.content.length > 1;
-                  }
-                  if(this.control.left_ring.active){
-                    this.control.left_ring.content = JSON.parse(resultBiometric).leftring;
-                    validContent = validContent && this.control.left_ring.content.length > 1;
-                  }
-                  if(this.control.left_pinky.active){
-                    this.control.left_pinky.content = JSON.parse(resultBiometric).leftlittle;
-                    validContent = validContent && this.control.left_pinky.content.length > 1;
-                  }
+            //       if(only_right && only_left){
+            //         this.onBoth.emit(this.control);
+            //       }else if(only_right){
+            //         this.onRight.emit(this.control);
+            //       }else if(only_left){
+            //         this.onLeft.emit(this.control);
+            //       }
+            //     }, error_initialize => {
+            //       console.log('FINGERS CONFIG ERROR:: ' + error_initialize);
+            //       this.alert.presentAlert('Error', '¡Ocurrio un problema!', 'Vuelva a capturar sus huellas por favor', ['Entiendo']);
+            //     });
+            //   } else{
+            //     FingersBidEnrollment.initializeVerify(this.userId, 'right', (resultBiometric) => {
+            //       let validContent = true;
+            //       if(this.control.left_index.active){
+            //         this.control.left_index.content = JSON.parse(resultBiometric).leftindex;
+            //         validContent = validContent && this.control.left_index.content.length > 1;
+            //       }
+            //       if(this.control.left_middle.active){
+            //         this.control.left_middle.content = JSON.parse(resultBiometric).leftmiddle;
+            //         validContent = validContent && this.control.left_middle.content.length > 1;
+            //       }
+            //       if(this.control.left_ring.active){
+            //         this.control.left_ring.content = JSON.parse(resultBiometric).leftring;
+            //         validContent = validContent && this.control.left_ring.content.length > 1;
+            //       }
+            //       if(this.control.left_pinky.active){
+            //         this.control.left_pinky.content = JSON.parse(resultBiometric).leftlittle;
+            //         validContent = validContent && this.control.left_pinky.content.length > 1;
+            //       }
     
-                  if(this.control.right_index.active){
-                    this.control.right_index.content = JSON.parse(resultBiometric).rightmiddle;
-                    validContent = validContent && this.control.right_index.content.length > 1;
-                  }
-                  if(this.control.right_middle.active){
-                    this.control.right_middle.content = JSON.parse(resultBiometric).rightmiddle;
-                    validContent = validContent && this.control.right_middle.content.length > 1;
-                  }
-                  if(this.control.right_ring.active){
-                    this.control.right_ring.content = JSON.parse(resultBiometric).rightring;
-                    validContent = validContent && this.control.right_ring.content.length > 1;
-                  }
-                  if(this.control.right_pinky.active){
-                    this.control.right_pinky.content = JSON.parse(resultBiometric).rightlittle;
-                    validContent = validContent && this.control.right_pinky.content.length > 1;
-                  }
+            //       if(this.control.right_index.active){
+            //         this.control.right_index.content = JSON.parse(resultBiometric).rightmiddle;
+            //         validContent = validContent && this.control.right_index.content.length > 1;
+            //       }
+            //       if(this.control.right_middle.active){
+            //         this.control.right_middle.content = JSON.parse(resultBiometric).rightmiddle;
+            //         validContent = validContent && this.control.right_middle.content.length > 1;
+            //       }
+            //       if(this.control.right_ring.active){
+            //         this.control.right_ring.content = JSON.parse(resultBiometric).rightring;
+            //         validContent = validContent && this.control.right_ring.content.length > 1;
+            //       }
+            //       if(this.control.right_pinky.active){
+            //         this.control.right_pinky.content = JSON.parse(resultBiometric).rightlittle;
+            //         validContent = validContent && this.control.right_pinky.content.length > 1;
+            //       }
     
-                  if(this.validContent){
-                    this.showMark();
-                  }else{
-                    this.hideMark();
-                  }
+            //       if(this.validContent){
+            //         this.showMark();
+            //       }else{
+            //         this.hideMark();
+            //       }
                   
-                  if(only_right && only_left){
-                    this.onBoth.emit(this.control);
-                  }else if(only_right){
-                    this.onRight.emit(this.control);
-                  }else if(only_left){
-                    this.onLeft.emit(this.control);
-                  }
-                }, error_initialize => {
-                  console.log('FINGERS CONFIG ERROR:: ' + error_initialize);
-                  this.alert.presentAlert('Error', '¡Ocurrio un problema!', 'Vuelva a capturar sus huellas por favor', ['Entiendo']);
-                });
-              }
-            }else{
+            //       if(only_right && only_left){
+            //         this.onBoth.emit(this.control);
+            //       }else if(only_right){
+            //         this.onRight.emit(this.control);
+            //       }else if(only_left){
+            //         this.onLeft.emit(this.control);
+            //       }
+            //     }, error_initialize => {
+            //       console.log('FINGERS CONFIG ERROR:: ' + error_initialize);
+            //       this.alert.presentAlert('Error', '¡Ocurrio un problema!', 'Vuelva a capturar sus huellas por favor', ['Entiendo']);
+            //     });
+            //   }
+            // }else{
               FingersBidEnrollment.initializeKaralundiVariable(params.toString(), (resultBiometric) => {
                 let validContent = true;
                 if(this.control.left_index.active){
@@ -417,7 +417,7 @@ export class EnrollmentComponent implements OnInit {
                 console.log('FINGERS CONFIG ERROR:: ' + error_initialize);
                 this.alert.presentAlert('Error', '¡Ocurrio un problema!', 'Vuelva a capturar sus huellas por favor', ['Entiendo']);
               });
-            }
+            // }
           } else {
             this.alert.presentAlert('Error', '¡Ocurrio un problema!', 'Error el levantar los componentes', ['Entiendo']);
           }

@@ -81,17 +81,30 @@ export class MainComponent implements OnInit {
         
         console.log('LOGIN FINGERS  ', result);
         this.loading.hide();
-
         let loginM: LoginModel = new LoginModel(); // objeto de sesion de agente
         if(result['code'] == -9999) {
           loginM = result['data'];
-          this.storage.save(environment.session, loginM);
-          this.alert.presentAlert('Inicio exitoso', 'Bienvenido!', loginM.name + ' ' + loginM.lastname + ' ' + loginM.middleName, ['OK']);
-          this.data.usuario = '';
-          this.data.contrasena = '';
-          this.data.fingers = new Hands();
-          this.continue();
-
+          if(loginM.biometricEnrollment.fingerOk){
+            let permission: boolean = false;
+            loginM.profile.permissions.forEach((e)=>{
+              permission = permission || e.id == environment.appPermission;
+            });
+            if(permission){
+              this.alert.presentAlert('Inicio exitoso', 'Bienvenido!', loginM.name + ' ' + loginM.lastname + ' ' + loginM.middleName, ['OK']);
+              this.storage.save(environment.session, this.loginM);
+              this.data.usuario = '';
+              this.data.contrasena = '';
+              this.data.fingers = new Hands();
+              this.loading.hide();
+              this.continue();
+            }else{
+              this.alert.presentAlert('Error', 'Error de permisos', 'No posees los permisos necearios para acceder a la aplicación', ['OK']);
+              this.loading.hide();
+            }
+          }else{
+            this.alert.presentAlert('Error', 'Usuario sin enrolar', 'Aun no tienes un enrolamiento activo, registrate para poder utilizar la aplicación', ['OK']);
+            this.loading.hide();
+          }
         } else {
           this.alert.presentAlert('No puede ingresar', 'No se encontro ningun usuario con los datos ingresados, vuelva a capturar sus huellas o verifique su usuario por favor', '', ['OK']);
           
@@ -100,7 +113,6 @@ export class MainComponent implements OnInit {
       }, error => {
         console.log('LOGIN FINGERS ERROR  ', error);
         this.alert.presentAlertSimpleConfirm('¡Ocurrio un problema!', 'Se esta presentando un problema con la conexion', '', 'Reitentar', ()=> { this.login() });
-
       });
     }else if(this.data.usuario && this.data.contrasena){
       this.login_serv.userPassLogin(this.token, this.data.usuario, this.data.contrasena).subscribe( data => {
@@ -118,6 +130,9 @@ export class MainComponent implements OnInit {
               this.alert.presentAlert('Inicio exitoso', 'Bienvenido!', loginM.name + ' ' + loginM.lastname + ' ' + loginM.middleName, ['OK']);
               this.loginM = data.data;
               this.storage.save(environment.session, this.loginM);
+              this.data.usuario = '';
+              this.data.contrasena = '';
+              this.data.fingers = new Hands();
               this.loading.hide();
               this.continue();
             }else{
@@ -133,7 +148,7 @@ export class MainComponent implements OnInit {
           this.alert.presentAlert('Error', 'Inicio de sesión incorrecto', 'Verifica tus datos de inicio de sesión e intentalo de nuevo', ['OK']);
         }
       }, error => {
-        console.log('Error Login', error);
+        console.log(JSON.stringify(error));
         this.alert.presentAlert('Error ' + error.status, 'Error de inicio de sesión', 'Ocurrió un error al ejecutar la petición, intentalo de nuevo', ['OK']);
         this.loading.hide();
       });

@@ -149,7 +149,9 @@ export class UserOcrComponent implements OnInit {
           this.data = this.serv_ocr.resulDto;
           this.dataAdress.calle = this.data.address;
           this.data.allData();
-          this.loading.hide();
+          this.serv_ocr.completeAdress(this.dataAdress.calle);
+          this.same_adress = false;
+          this.getOcr();
         }else{this.getOcr();}
       } else  {
         if(this.serv_ocr.finish && this.serv_ocr.finishCD){
@@ -169,7 +171,7 @@ export class UserOcrComponent implements OnInit {
       this.serv_ocr.curpRenapo(this.data.curp, this.operation.operationId, this.token).subscribe((curp)=>{
         console.log('CURP RENAPO: ', curp);
         if(curp['data']['resultado']['estatus'] === 'OK'){
-          this.serv_update.updatePersona(this.data, this.token, this.person.id)
+          this.serv_update.updatePersona(this.data, this.token, this.person.id, this.operation)
           .subscribe(result => {
             console.log('SAVE PERSON ', result);
             this.storage.save(environment.dataOcr, this.data);
