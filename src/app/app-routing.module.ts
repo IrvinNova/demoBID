@@ -31,7 +31,7 @@ import { UserPrivacyComponent } from './componets/user/user-privacy/user-privacy
 import { TesterComponent } from './componets/test/tester/tester.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'userBuro', pathMatch: 'full' },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
   //{ path: '', redirectTo: 'test', pathMatch: 'full' },
   { path: 'main', component: MainComponent, pathMatch: 'full' },
   { path: 'registerMain', component: RegisterMainComponent, pathMatch: 'full' },
