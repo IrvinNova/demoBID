@@ -3,22 +3,27 @@ export const environment = {
   debug: false,
 
   // credentials
-  user: 'fbe',
+  user: 'demo',
   password: 'password',
   encoded: 'dXNlcmFwcDpwYXNzd29yZA==',
 
   // logo
-  logo: '/assets/logo_blanco_2.png',
-  logo_light: '/assets/logo_BID.png',
+  logo: '/assets/logo_BID.png', 
+  logo_light: '/assets/logo_blanco_2.png',
+  logo_blanco: '/assets/logo_blanco_2.png',
+  logo_face: '/assets/Selfie_Bio.png',
+  logo_carga: '/assets/loading_BID_2.gif',
   ocr_timeout: 2000,
+
+
 
   // urls
   servicesURL: 'http://apidev.buroidentidad.com',
-  //servicesURL: 'http://api.buroidentidad.com',
+  // servicesURL: 'http://apiqa.buroidentidad.com',
 
   // codes
   okCode: -9999,
-  appPermission: 9,
+  appPermission: 1,
   mexico_id: 127,
   cdmx_id: 9,
   map_key: 'AIzaSyDVbHKUNntc-jWtK5yfU69Ve0zgxRyLjAw',
@@ -48,20 +53,24 @@ export const environment = {
   save_doc_resp: ':9431/bid/rest/v1/files/images',
   face_serv: ':9423/bid/rest/v1/enrollment/facial',
   curp_validate: ':9426/bid/rest/v1/renapo/napi/curp',
+  otpGenerate: ':9430/bid/rest/v1/notification/otp/generate',
+  otpValidate: ':9430/bid/rest/v1/notification/otp/validate',
+  generateDoc: ':9424/bid/rest/v1/contracts/getContract',
+  fingerVerify: ':9420/bid/finger/verify',
   direction_serv: 'https://us-central1-bid-general.cloudfunctions.net/DireccionCompleta',
   
   // storage
-  token: 'asbdkasjdkla',
-  session: 'alksjdpiwk',
-  client: 'alksjpadkwm',
-  credit: 'alsknaksnwunw',
-  fingers: 'a8mas8a9san',
-  operation: 'asasasoai9w',
-  person: 'oasidmadm9a',
-  agente: 'lkn2okn2knnk',
-  leftIndex: 'lk3jkjkjl22',
-  rightIndex: 'jkb2jon2k3no2',
-  dataOcr: 'inum83mosim33f',
+  token: 'auth_token',
+  session: 'session_data',
+  client: 'client_data',
+  credit: 'credit_data',
+  fingers: 'fingers_data',
+  operation: 'operation_data',
+  person: 'person_data',
+  agente: 'agent_data',
+  leftIndex: 'leftIndex',
+  rightIndex: 'rightIndex',
+  dataOcr: 'dataPerson',
   newClient: 'newClient',
   operationClient: 'operationClient',
   person_adress: 'person_adress',
@@ -76,5 +85,11 @@ export const environment = {
   same_adress: 'same_adress',
   hand: 'hand_storage',
   right_valid: 'right_valid',
+  kyc: 'kyc',
+  telefono: 'telefono',
+  email: 'email',
+  pdfDoc: 'pdfDoc',
+  firmaAuth: 'firmaAuth',
+  firmaBio: 'firmaBio',
   left_valid: 'left_valid'
 };

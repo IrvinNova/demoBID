@@ -182,7 +182,7 @@ export class UserFingersComponent implements OnInit {
 
   private finalizar(){
     this.alert.presentAlert('Usuario encontrado', 'Se encontró el usuario', 'El usuario fue encontrado, por lo tanto, no necesita de enrolarse nuevamente', ['OK']);
-    this.nav.navigateRoot('/userMain');
+    this.nav.navigateRoot('/userFingersVerify');
   }
 
 }
