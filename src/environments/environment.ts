@@ -23,7 +23,7 @@ export const environment = {
 
   // codes
   okCode: -9999,
-  appPermission: 1,
+  appPermission: 9,
   mexico_id: 127,
   cdmx_id: 9,
   map_key: 'AIzaSyDVbHKUNntc-jWtK5yfU69Ve0zgxRyLjAw',
@@ -59,6 +59,7 @@ export const environment = {
   fingerVerify: ':9420/bid/finger/verify',
   face_compare: '9423/bid/rest/v1/facial/recognition',
   direction_serv: 'https://us-central1-bid-general.cloudfunctions.net/DireccionCompleta',
+  face_compare: ':9423/bid/rest/v1/facial/recognition',
   
   // storage
   token: 'auth_token',

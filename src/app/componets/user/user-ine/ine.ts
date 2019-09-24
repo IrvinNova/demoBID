@@ -5,9 +5,9 @@ export class Ine {
     public ocr: string;
     public similitud: number;
     public similitudFace: number;
-    public aprove: boolean;
 
     public showINE: boolean;
+    public aprove: boolean;
     public showFace: boolean;
     public face: boolean;
     public showRenapo: boolean;
