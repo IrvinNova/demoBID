@@ -277,6 +277,7 @@ public class FingersBidEnrollment extends CordovaPlugin {
                                         .setDisplayBoxes(displayboxes)
                                         .setWSQCompression(compression)
                                         .setCalculateNFIQ(true)
+                                        .displayResult(false)
                                         .qcList(qc)
                                         .capture();
 

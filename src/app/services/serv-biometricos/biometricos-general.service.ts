@@ -52,14 +52,14 @@ export class BiometricosGeneralService {
         userId: 1
       }
     };
-    if(dataF.right_middle.active){request['rightmiddle'] = dataF.right_middle.content;}
-    if(dataF.right_pinky.active){request['rightlittle'] = dataF.right_pinky.content;}
-    if(dataF.right_ring.active){request['rightring'] = dataF.right_ring.content;}
-    if(dataF.right_index.active){request['rightindex'] = dataF.right_index.content;}
-    if(dataF.left_index.active){request['leftindex'] = dataF.left_index.content;}
-    if(dataF.left_middle.active){request['leftmiddle'] = dataF.left_middle.content;}
-    if(dataF.left_pinky.active){request['leftlittle'] = dataF.left_pinky.content;}
-    if(dataF.left_ring.active){request['leftring'] = dataF.left_ring.content;}
+    if(dataF.right_middle.content){request['data']['rightmiddle'] = dataF.right_middle.content;}
+    if(dataF.right_pinky.content){request['data']['rightlittle'] = dataF.right_pinky.content;}
+    if(dataF.right_ring.content){request['data']['rightring'] = dataF.right_ring.content;}
+    if(dataF.right_index.content){request['data']['rightindex'] = dataF.right_index.content;}
+    if(dataF.left_index.content){request['data']['leftindex'] = dataF.left_index.content;}
+    if(dataF.left_middle.content){request['data']['leftmiddle'] = dataF.left_middle.content;}
+    if(dataF.left_pinky.content){request['data']['leftlittle'] = dataF.left_pinky.content;}
+    if(dataF.left_ring.content){request['data']['leftring'] = dataF.left_ring.content;}
     console.log('REQUEST FINGERS  ', JSON.stringify(request));
     return request;
 
@@ -92,14 +92,14 @@ export class BiometricosGeneralService {
         userId: 1
       }
     };
-    if(dataF.right_middle.active){request['rightmiddle'] = dataF.right_middle.content;}
-    if(dataF.right_pinky.active){request['rightlittle'] = dataF.right_pinky.content;}
-    if(dataF.right_ring.active){request['rightring'] = dataF.right_ring.content;}
-    if(dataF.right_index.active){request['rightindex'] = dataF.right_index.content;}
-    if(dataF.left_index.active){request['leftindex'] = dataF.left_index.content;}
-    if(dataF.left_middle.active){request['leftmiddle'] = dataF.left_middle.content;}
-    if(dataF.left_pinky.active){request['leftlittle'] = dataF.left_pinky.content;}
-    if(dataF.left_ring.active){request['leftring'] = dataF.left_ring.content;}
+    if(dataF.right_middle.content){request['data']['rightmiddle'] = dataF.right_middle.content;}
+    if(dataF.right_pinky.content){request['data']['rightlittle'] = dataF.right_pinky.content;}
+    if(dataF.right_ring.content){request['data']['rightring'] = dataF.right_ring.content;}
+    if(dataF.right_index.content){request['data']['rightindex'] = dataF.right_index.content;}
+    if(dataF.left_index.content){request['data']['leftindex'] = dataF.left_index.content;}
+    if(dataF.left_middle.content){request['data']['leftmiddle'] = dataF.left_middle.content;}
+    if(dataF.left_pinky.content){request['data']['leftlittle'] = dataF.left_pinky.content;}
+    if(dataF.left_ring.content){request['data']['leftring'] = dataF.left_ring.content;}
     console.log('REQUEST FINGERS  ', JSON.stringify(request));
     return request;
   }

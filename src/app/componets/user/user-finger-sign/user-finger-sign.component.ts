@@ -86,6 +86,7 @@ export class UserFingerSignComponent implements OnInit {
       this.serv_biometric.veriSign(this.dataFingers.fingers, this.token, this.operation.operationId, this.loginM.user)
         .subscribe( result => {
           console.log('VERISIGN CLIENT  ', result);
+          console.log('DataFingers', this.dataFingers);
           this.storage.save(environment.firmaBio, this.dataFingers['right_index']['content']);
           this.continue();
         }, error => {
