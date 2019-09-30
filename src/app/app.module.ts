@@ -17,6 +17,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 import { CameraModule } from './bid/components/camera/camera.module';
 import { ModalModule } from './bid/components/modal/modal.module';
@@ -124,6 +125,7 @@ import { TesterComponent } from './componets/test/tester/tester.component';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     EnrollmentModule,
     ModalModule,
+    Keyboard,
     LoadingModule,
     CameraModule,
     HttpClientModule,

@@ -111,8 +111,11 @@ export class UserFingersVerifyComponent implements OnInit {
   }
 
   private nextPage(){
-    this.keyboard.hide();
     this.nav.navigateForward('/userId');
+  }
+
+  public hideKey(){
+    this.keyboard.hide();
   }
 
 }

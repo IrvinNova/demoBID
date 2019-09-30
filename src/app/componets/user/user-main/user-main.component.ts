@@ -32,7 +32,7 @@ export class UserMainComponent implements OnInit {
     // this.nav.navigateRoot('/userPrivacy');
     let actions: ModalActions[] = [];
     let act: ModalActions = new ModalActions();
-    act.action = () => {this.nav.navigateRoot('/userFingers');};
+    act.action = () => {this.nav.navigateForward('/userFingers');};
     act.name = 'Acepto terminos';
     act.styles = '';
     actions.push(act);

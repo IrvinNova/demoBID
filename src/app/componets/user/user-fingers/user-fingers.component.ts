@@ -35,6 +35,8 @@ export class UserFingersComponent implements OnInit {
   private person: Person = new Person();
   private loginM: LoginModel;
   private enroll: boolean;
+  public name: string;
+  public email: string;
 
   constructor(private nav: NavController,
               private alert: AlertService,
@@ -111,6 +113,8 @@ export class UserFingersComponent implements OnInit {
             this.clientData.operationId = result['data']['operationId'];
             this.operation.operationId = result['data']['operationId'];
             this.operation.systemCode = result['data']['person']['code'];
+            this.name = result['data']['person']['firstName'] + ' ' + result['data']['person']['lastName'] + ' ' + result['data']['person']['middleName'];
+            this.email = result['data']['person']['email'];
             this.enroll = false;
             this.storage.save(environment.enroll, this.enroll);
             this.storage.save(environment.operation, this.operation);
@@ -145,6 +149,7 @@ export class UserFingersComponent implements OnInit {
                       this.storage.save(environment.person, this.person);
                       this.storage.save(environment.dataClient, this.clientData);
                       this.loading.hide();
+                      console.log('CREATE PERSON  INSIDE', result);
                       this.continue();
                     } else {
                       this.loading.hide();
@@ -186,11 +191,12 @@ export class UserFingersComponent implements OnInit {
   }
 
   public continue() {
-    this.nav.navigateRoot('/userFingersVerify');
+    console.log('Entro al continue');
+    this.nav.navigateForward('/userFingersVerify');
   }
 
   private finalizar(){
-    this.alert.presentAlert('Usuario encontrado', 'Se encontró el usuario', 'El usuario fue encontrado, por lo tanto, no necesita de enrolarse nuevamente', ['OK']);
+    this.alert.presentAlert('Usuario encontrado', this.name + '\n' + this.email , 'El usuario fue encontrado, por lo tanto, no necesita de enrolarse nuevamente', ['OK']);
     this.nav.navigateRoot('/userMain');
   }
 
